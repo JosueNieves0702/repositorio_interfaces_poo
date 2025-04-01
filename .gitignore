@@ -97,7 +97,7 @@ $RECYCLE.BIN/
 *.userprefs
 
 # Archivos de compilación de Swing (si usas algún builder)
-*.form
+
 
 # Archivos de dependencias (si no usas Maven/Gradle)
 /lib/
