@@ -1,1 +1,118 @@
-/Merks&Spen/nbproject/private/
+
+# Archivos generados por el IDE
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.orig
+*.rej
+*.DS_Store
+*.log
+*.cache
+*.diff
+*.patch
+*.aux
+*.toc
+
+# Directorios generados por el IDE
+/bin/
+/build/
+/out/
+/target/
+/dist/
+/nbproject/
+/private/
+/classes/
+/test-output/
+
+# Archivos de configuración local
+*.properties
+*.prefs
+*.settings
+*.cfg
+*.config
+
+# Archivos de base de datos
+*.db
+*.sql
+*.sqlite
+/db/
+/data/
+
+# Archivos de Maven
+dependency-reduced-pom.xml
+maven-*.xml
+.mvn/
+mvnw
+mvnw.cmd
+
+# Archivos de Gradle
+.gradle/
+build/
+
+# Archivos de NetBeans
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Archivos de Eclipse
+.settings/
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos de sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Archivos de usuario
+*.suo
+*.user
+*.userprefs
+
+# Archivos de compilación de Swing (si usas algún builder)
+*.form
+
+# Archivos de dependencias (si no usas Maven/Gradle)
+/lib/
+/libs/
+
+# Archivos de configuración de MySQL (si los tienes localmente)
+my.cnf
+
+# Archivos de credenciales (NO incluir credenciales en el repositorio)
+*.key
+*.pem
+*.crt
+*.secret
+*.credential
+connection.properties
+config.properties
+
+
