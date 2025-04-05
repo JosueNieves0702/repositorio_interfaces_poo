@@ -28,8 +28,8 @@ public class Menu_administrador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnMenuUsuarios = new javax.swing.JLabel();
+        btnControlDeArticulos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -43,27 +43,49 @@ public class Menu_administrador extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("BIENVENIDO");
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("*MENU USUARIOS");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenuUsuarios.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnMenuUsuarios.setForeground(new java.awt.Color(153, 153, 153));
+        btnMenuUsuarios.setText("MENU USUARIOS");
+        btnMenuUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMenuUsuariosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMenuUsuariosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMenuUsuariosMouseExited(evt);
+            }
+        });
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setText("*CONTROL DE ARTICULOS");
+        btnControlDeArticulos.setBackground(new java.awt.Color(255, 255, 255));
+        btnControlDeArticulos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnControlDeArticulos.setForeground(new java.awt.Color(153, 153, 153));
+        btnControlDeArticulos.setText("CONTROL DE ARTICULOS");
+        btnControlDeArticulos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnControlDeArticulosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnControlDeArticulosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnControlDeArticulosMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
+                    .addComponent(btnControlDeArticulos)
+                    .addComponent(btnMenuUsuarios))
                 .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
@@ -72,13 +94,13 @@ public class Menu_administrador extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(btnMenuUsuarios)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(btnControlDeArticulos)
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 300));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,6 +115,37 @@ public class Menu_administrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnControlDeArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnControlDeArticulosMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnControlDeArticulosMouseClicked
+
+    private void btnMenuUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuUsuariosMouseExited
+        // TODO add your handling code here:
+        btnMenuUsuarios.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnMenuUsuariosMouseExited
+
+    private void btnMenuUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuUsuariosMouseEntered
+        // TODO add your handling code here:
+        btnMenuUsuarios.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnMenuUsuariosMouseEntered
+
+    private void btnControlDeArticulosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnControlDeArticulosMouseEntered
+        // TODO add your handling code here:
+        btnControlDeArticulos.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnControlDeArticulosMouseEntered
+
+    private void btnControlDeArticulosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnControlDeArticulosMouseExited
+        // TODO add your handling code here:
+        btnControlDeArticulos.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnControlDeArticulosMouseExited
+
+    private void btnMenuUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuUsuariosMouseClicked
+        // TODO add your handling code here:
+        MenuUsuarios MU = new MenuUsuarios();
+        MU.setVisible(true);
+    }//GEN-LAST:event_btnMenuUsuariosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -131,9 +184,9 @@ public class Menu_administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnControlDeArticulos;
+    private javax.swing.JLabel btnMenuUsuarios;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
