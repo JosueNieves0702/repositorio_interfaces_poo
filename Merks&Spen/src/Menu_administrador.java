@@ -32,6 +32,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnControlDeArticulos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationByPlatform(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,6 +65,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnControlDeArticulos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnControlDeArticulos.setForeground(new java.awt.Color(153, 153, 153));
         btnControlDeArticulos.setText("CONTROL DE ARTICULOS");
+        btnControlDeArticulos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnControlDeArticulos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnControlDeArticulosMouseClicked(evt);
@@ -100,7 +102,7 @@ public class Menu_administrador extends javax.swing.JFrame {
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,7 +145,7 @@ public class Menu_administrador extends javax.swing.JFrame {
 
     private void btnMenuUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuUsuariosMouseClicked
         // TODO add your handling code here:
-        MenuUsuarios MU = new MenuUsuarios();
+        MenuAdminUsuarios MU = new MenuAdminUsuarios();
         MU.setVisible(true);
     }//GEN-LAST:event_btnMenuUsuariosMouseClicked
 
