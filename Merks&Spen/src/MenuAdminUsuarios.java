@@ -193,8 +193,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
 
     private void btnModificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarUsuarioMouseClicked
         // TODO add your handling code here:
-        modificarUsuario MU = new modificarUsuario();
-        MU.setVisible(true);
+   
        
     }//GEN-LAST:event_btnModificarUsuarioMouseClicked
 

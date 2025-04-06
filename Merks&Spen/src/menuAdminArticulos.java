@@ -25,21 +25,181 @@ public class menuAdminArticulos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnModificarUsuario = new javax.swing.JLabel();
+        btnCrearUsuario = new javax.swing.JLabel();
+        btnEliminarUsuario = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationByPlatform(true);
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setText("QUE DESEA REALIZAR HOY?");
+
+        btnModificarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnModificarUsuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnModificarUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        btnModificarUsuario.setText("* MODIFICAR USUARIO");
+        btnModificarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarUsuarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModificarUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModificarUsuarioMouseExited(evt);
+            }
+        });
+
+        btnCrearUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnCrearUsuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCrearUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        btnCrearUsuario.setText("* CREAR USUARIO");
+        btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearUsuarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrearUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearUsuarioMouseExited(evt);
+            }
+        });
+
+        btnEliminarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminarUsuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        btnEliminarUsuario.setText("* ELIMINAR USUARIO");
+        btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarUsuarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarUsuarioMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrearUsuario)
+                    .addComponent(btnModificarUsuario)
+                    .addComponent(jLabel1)
+                    .addComponent(btnEliminarUsuario))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(91, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnModificarUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarUsuario)
+                .addGap(82, 82, 82))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 244, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnModificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarUsuarioMouseClicked
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_btnModificarUsuarioMouseClicked
+
+    private void btnModificarUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarUsuarioMouseEntered
+        // TODO add your handling code here:
+        btnModificarUsuario.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnModificarUsuarioMouseEntered
+
+    private void btnModificarUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarUsuarioMouseExited
+        // TODO add your handling code here:
+        btnModificarUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnModificarUsuarioMouseExited
+
+    private void btnCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseClicked
+        // TODO add your handling code here:
+        crearUsuario CU = new crearUsuario(); // Crear instancia
+        CU.setVisible(true); // Mostrar la nueva ventana
+    }//GEN-LAST:event_btnCrearUsuarioMouseClicked
+
+    private void btnCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseEntered
+        // TODO add your handling code here:
+        btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
+
+    }//GEN-LAST:event_btnCrearUsuarioMouseEntered
+
+    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
+        // TODO add your handling code here:
+        btnCrearUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnCrearUsuarioMouseExited
+
+    private void btnEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseClicked
+        // TODO add your handling code here:
+        eliminarUsuario EU = new eliminarUsuario();
+        EU.setVisible(true);
+    }//GEN-LAST:event_btnEliminarUsuarioMouseClicked
+
+    private void btnEliminarUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseEntered
+        // TODO add your handling code here:
+        btnEliminarUsuario.setForeground(new java.awt.Color(0,102,102));
+
+    }//GEN-LAST:event_btnEliminarUsuarioMouseEntered
+
+    private void btnEliminarUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseExited
+        // TODO add your handling code here:
+
+        btnEliminarUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseExited
 
     /**
      * @param args the command line arguments
@@ -77,5 +237,11 @@ public class menuAdminArticulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCrearUsuario;
+    private javax.swing.JLabel btnEliminarUsuario;
+    private javax.swing.JLabel btnModificarUsuario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,9 +28,9 @@ public class eliminarUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        btnDpto1 = new javax.swing.JLabel();
+        btnBuscarId = new javax.swing.JLabel();
         txtIngresarId = new javax.swing.JTextField();
-        btnCrearUsuario = new javax.swing.JLabel();
+        btnEliminarUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -49,19 +49,19 @@ public class eliminarUsuario extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ELIMINAR USUARIO");
 
-        btnDpto1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnDpto1.setForeground(new java.awt.Color(153, 153, 153));
-        btnDpto1.setText("BUSCAR");
-        btnDpto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDpto1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBuscarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnBuscarId.setForeground(new java.awt.Color(153, 153, 153));
+        btnBuscarId.setText("BUSCAR");
+        btnBuscarId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDpto1MouseClicked(evt);
+                btnBuscarIdMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDpto1MouseEntered(evt);
+                btnBuscarIdMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDpto1MouseExited(evt);
+                btnBuscarIdMouseExited(evt);
             }
         });
 
@@ -82,18 +82,18 @@ public class eliminarUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnCrearUsuario.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnCrearUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        btnCrearUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnCrearUsuario.setText("ELIMINAR");
-        btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCrearUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarUsuario.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        btnEliminarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminarUsuario.setText("ELIMINAR");
+        btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrearUsuarioMouseEntered(evt);
+                btnEliminarUsuarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrearUsuarioMouseExited(evt);
+                btnEliminarUsuarioMouseExited(evt);
             }
         });
 
@@ -108,8 +108,8 @@ public class eliminarUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(btnDpto1))
-                    .addComponent(btnCrearUsuario))
+                        .addComponent(btnBuscarId))
+                    .addComponent(btnEliminarUsuario))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -119,10 +119,10 @@ public class eliminarUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDpto1)
+                    .addComponent(btnBuscarId)
                     .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(119, Short.MAX_VALUE))
         );
 
@@ -141,7 +141,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 280, 220));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 270, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,19 +157,19 @@ public class eliminarUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDpto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDpto1MouseClicked
+    private void btnBuscarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDpto1MouseClicked
+    }//GEN-LAST:event_btnBuscarIdMouseClicked
 
-    private void btnDpto1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDpto1MouseEntered
+    private void btnBuscarIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseEntered
         // TODO add your handling code here:
-        btnDpto1.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnDpto1MouseEntered
+        btnBuscarId.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnBuscarIdMouseEntered
 
-    private void btnDpto1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDpto1MouseExited
+    private void btnBuscarIdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseExited
         // TODO add your handling code here:
-        btnDpto1.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnDpto1MouseExited
+        btnBuscarId.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnBuscarIdMouseExited
 
     private void txtIngresarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarIdActionPerformed
         // TODO add your handling code here:
@@ -184,15 +184,15 @@ public class eliminarUsuario extends javax.swing.JFrame {
         txtIngresarId.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_txtIngresarIdMousePressed
 
-    private void btnCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseEntered
+    private void btnEliminarUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseEntered
         // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnCrearUsuarioMouseEntered
+        btnEliminarUsuario.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseEntered
 
-    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
+    private void btnEliminarUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseExited
         // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnCrearUsuarioMouseExited
+        btnEliminarUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseExited
 
     /**
      * @param args the command line arguments
@@ -230,8 +230,8 @@ public class eliminarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnCrearUsuario;
-    private javax.swing.JLabel btnDpto1;
+    private javax.swing.JLabel btnBuscarId;
+    private javax.swing.JLabel btnEliminarUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

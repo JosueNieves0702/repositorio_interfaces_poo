@@ -31,7 +31,6 @@ public class crearUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         dptoSeleccionado = new javax.swing.JTextField();
         txtContra = new javax.swing.JPasswordField();
         tipoSeleccionado = new javax.swing.JTextField();
@@ -39,8 +38,8 @@ public class crearUsuario extends javax.swing.JFrame {
         btnAdmin = new javax.swing.JLabel();
         btnUser = new javax.swing.JLabel();
         btnCrearUsuario = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -70,11 +69,6 @@ public class crearUsuario extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("TIPO DE USUARIO:");
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("jTextField1");
 
         dptoSeleccionado.setBackground(new java.awt.Color(255, 255, 255));
         dptoSeleccionado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -186,31 +180,25 @@ public class crearUsuario extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar))
+                    .addComponent(jLabel1)
+                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscar))
-                            .addComponent(jLabel1)
-                            .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(btnAdmin)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnUser))
-                            .addComponent(jLabel2)
-                            .addComponent(btnCrearUsuario))
-                        .addGap(368, 368, 368)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 5, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(btnAdmin)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUser))
+                    .addComponent(jLabel2)
+                    .addComponent(btnCrearUsuario))
+                .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,47 +206,43 @@ public class crearUsuario extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscar))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(2, 2, 2)
-                        .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdmin)
-                            .addComponent(btnUser))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(2, 2, 2)
+                .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdmin)
+                    .addComponent(btnUser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "DPTO", "CONTRASEÑA", "TIPO DE USUARIO"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 310, 200));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 280, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,20 +258,46 @@ public class crearUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSeleccionadoActionPerformed
+    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_tipoSeleccionadoActionPerformed
+        btnCrearUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnCrearUsuarioMouseExited
 
-    private void txtContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMousePressed
+    private void btnCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseEntered
         // TODO add your handling code here:
-        txtContra.setText("");
-        txtContra.setForeground(new java.awt.Color(0,0,0));
+        btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnCrearUsuarioMouseEntered
 
-    }//GEN-LAST:event_txtContraMousePressed
-
-    private void dptoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dptoSeleccionadoActionPerformed
+    private void btnUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_dptoSeleccionadoActionPerformed
+        btnUser.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnUserMouseExited
+
+    private void btnUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseEntered
+        // TODO add your handling code here:
+        btnUser.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnUserMouseEntered
+
+    private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
+        // TODO add your handling code here:
+        tipoSeleccionado.setText("USER");
+    }//GEN-LAST:event_btnUserMouseClicked
+
+    private void btnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseExited
+        // TODO add your handling code here:
+        btnAdmin.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnAdminMouseExited
+
+    private void btnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseEntered
+        // TODO add your handling code here:
+        btnAdmin.setForeground(new java.awt.Color(0,102,102));
+
+    }//GEN-LAST:event_btnAdminMouseEntered
+
+    private void btnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseClicked
+        // TODO add your handling code here:
+        tipoSeleccionado.setText("ADMIN");
+    }//GEN-LAST:event_btnAdminMouseClicked
 
     private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
         // TODO add your handling code here:
@@ -299,66 +309,38 @@ public class crearUsuario extends javax.swing.JFrame {
         btnBuscar.setForeground(new java.awt.Color(0,102,102));
     }//GEN-LAST:event_btnBuscarMouseEntered
 
-    private void txtContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraMouseReleased
-
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
         // TODO add your handling code here:
         buscarDpto BB = new buscarDpto();
         BB.setVisible(true);
     }//GEN-LAST:event_btnBuscarMouseClicked
 
+    private void tipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSeleccionadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoSeleccionadoActionPerformed
+
+    private void txtContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraMouseReleased
+
+    private void txtContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMousePressed
+        // TODO add your handling code here:
+        txtContra.setText("");
+        txtContra.setForeground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_txtContraMousePressed
+
     private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
         // TODO add your handling code here:
         String contra = new String(txtContra.getPassword());
-    if (contra.equals("*******")) {
-        txtContra.setText(""); // Limpia solo si está el texto por defecto
-    }
-    txtContra.setForeground(new java.awt.Color(0, 0, 0));
+        if (contra.equals("*******")) {
+            txtContra.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtContra.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_txtContraMouseClicked
 
-    private void btnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseClicked
+    private void dptoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dptoSeleccionadoActionPerformed
         // TODO add your handling code here:
-        tipoSeleccionado.setText("ADMIN");
-    }//GEN-LAST:event_btnAdminMouseClicked
-
-    private void btnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseEntered
-        // TODO add your handling code here:
-        btnAdmin.setForeground(new java.awt.Color(0,102,102));
-        
-    }//GEN-LAST:event_btnAdminMouseEntered
-
-    private void btnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseExited
-        // TODO add your handling code here:
-                btnAdmin.setForeground(new java.awt.Color(153,153,153));
-
-    }//GEN-LAST:event_btnAdminMouseExited
-
-    private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
-        // TODO add your handling code here:
-        tipoSeleccionado.setText("USER");
-    }//GEN-LAST:event_btnUserMouseClicked
-
-    private void btnUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseEntered
-        // TODO add your handling code here:
-        btnUser.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnUserMouseEntered
-
-    private void btnUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseExited
-        // TODO add your handling code here:
-        btnUser.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnUserMouseExited
-
-    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
-        // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnCrearUsuarioMouseExited
-
-    private void btnCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseEntered
-        // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnCrearUsuarioMouseEntered
+    }//GEN-LAST:event_dptoSeleccionadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,9 +389,8 @@ public class crearUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField tipoSeleccionado;
     private javax.swing.JPasswordField txtContra;
     // End of variables declaration//GEN-END:variables

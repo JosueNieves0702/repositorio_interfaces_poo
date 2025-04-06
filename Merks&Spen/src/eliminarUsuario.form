@@ -73,9 +73,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtIngresarId" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="btnDpto1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBuscarId" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnCrearUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEliminarUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                   </Group>
@@ -88,11 +88,11 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnDpto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBuscarId" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtIngresarId" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnCrearUsuario" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnEliminarUsuario" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace pref="119" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -111,7 +111,7 @@
                 <Property name="text" type="java.lang.String" value="ELIMINAR USUARIO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="btnDpto1">
+            <Component class="javax.swing.JLabel" name="btnBuscarId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="12" style="1"/>
@@ -125,9 +125,9 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDpto1MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDpto1MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDpto1MouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBuscarIdMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBuscarIdMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBuscarIdMouseExited"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIngresarId">
@@ -152,7 +152,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIngresarIdActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="btnCrearUsuario">
+            <Component class="javax.swing.JLabel" name="btnEliminarUsuario">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="12" style="1"/>
@@ -168,8 +168,8 @@
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCrearUsuarioMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCrearUsuarioMouseExited"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEliminarUsuarioMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEliminarUsuarioMouseExited"/>
               </Events>
             </Component>
           </SubComponents>
@@ -180,7 +180,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="60" width="280" height="220"/>
+              <AbsoluteConstraints x="220" y="60" width="270" height="220"/>
             </Constraint>
           </Constraints>
 
