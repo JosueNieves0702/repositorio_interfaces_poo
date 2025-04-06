@@ -37,14 +37,17 @@ public class modificarUsuario extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JLabel();
         btnAdmin = new javax.swing.JLabel();
         btnUser = new javax.swing.JLabel();
-        btnCrearUsuario = new javax.swing.JLabel();
+        btnEliminarUsuario = new javax.swing.JLabel();
         btnIngrseId = new javax.swing.JTextField();
         btnBuscarId = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(153, 153, 153));
@@ -157,18 +160,18 @@ public class modificarUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnCrearUsuario.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnCrearUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        btnCrearUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnCrearUsuario.setText("MODIFICAR");
-        btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCrearUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarUsuario.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        btnEliminarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminarUsuario.setText("MODIFICAR");
+        btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrearUsuarioMouseEntered(evt);
+                btnEliminarUsuarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrearUsuarioMouseExited(evt);
+                btnEliminarUsuarioMouseExited(evt);
             }
         });
 
@@ -225,7 +228,7 @@ public class modificarUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnUser))
                     .addComponent(jLabel2)
-                    .addComponent(btnCrearUsuario)
+                    .addComponent(btnEliminarUsuario)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnIngrseId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -259,24 +262,26 @@ public class modificarUsuario extends javax.swing.JFrame {
                     .addComponent(btnAdmin)
                     .addComponent(btnUser))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 300, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 32, 276, 236));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -365,15 +370,15 @@ public class modificarUsuario extends javax.swing.JFrame {
         btnUser.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnUserMouseExited
 
-    private void btnCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseEntered
+    private void btnEliminarUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseEntered
         // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnCrearUsuarioMouseEntered
+        btnEliminarUsuario.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseEntered
 
-    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
+    private void btnEliminarUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseExited
         // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnCrearUsuarioMouseExited
+        btnEliminarUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseExited
 
     private void btnIngrseIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngrseIdActionPerformed
         // TODO add your handling code here:
@@ -433,7 +438,7 @@ public class modificarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel btnAdmin;
     private javax.swing.JLabel btnBuscar;
     private javax.swing.JLabel btnBuscarId;
-    private javax.swing.JLabel btnCrearUsuario;
+    private javax.swing.JLabel btnEliminarUsuario;
     private javax.swing.JTextField btnIngrseId;
     private javax.swing.JLabel btnUser;
     private javax.swing.JTextField dptoSeleccionado;
@@ -443,6 +448,8 @@ public class modificarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField tipoSeleccionado;
     private javax.swing.JPasswordField txtContra;
     // End of variables declaration//GEN-END:variables

@@ -44,12 +44,12 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("QUE DESEA REALIZAR HOY?");
+        jLabel1.setText("USUARIOS");
 
         btnModificarUsuario.setBackground(new java.awt.Color(255, 255, 255));
         btnModificarUsuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnModificarUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        btnModificarUsuario.setText("* MODIFICAR USUARIO");
+        btnModificarUsuario.setText("MODIFICAR USUARIO");
         btnModificarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModificarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -66,7 +66,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
         btnCrearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         btnCrearUsuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCrearUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        btnCrearUsuario.setText("* CREAR USUARIO");
+        btnCrearUsuario.setText("CREAR USUARIO");
         btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,7 +83,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
         btnEliminarUsuario.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminarUsuario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnEliminarUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        btnEliminarUsuario.setText("* ELIMINAR USUARIO");
+        btnEliminarUsuario.setText("ELIMINAR USUARIO");
         btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,8 +105,8 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCrearUsuario)
-                    .addComponent(btnModificarUsuario)
                     .addComponent(jLabel1)
+                    .addComponent(btnModificarUsuario)
                     .addComponent(btnEliminarUsuario))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -117,11 +117,11 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnCrearUsuario)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnModificarUsuario)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEliminarUsuario)
-                .addGap(82, 82, 82))
+                .addGap(94, 94, 94))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -130,7 +130,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 260, Short.MAX_VALUE))
+                .addGap(0, 356, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,6 +193,8 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
 
     private void btnModificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarUsuarioMouseClicked
         // TODO add your handling code here:
+        modificarUsuario MU = new modificarUsuario();
+        MU.setVisible(true);
    
        
     }//GEN-LAST:event_btnModificarUsuarioMouseClicked

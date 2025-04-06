@@ -30,6 +30,8 @@ public class Menu_administrador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnMenuUsuarios = new javax.swing.JLabel();
         btnControlDeArticulos = new javax.swing.JLabel();
+        btnAdminInventario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -47,7 +49,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnMenuUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         btnMenuUsuarios.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnMenuUsuarios.setForeground(new java.awt.Color(153, 153, 153));
-        btnMenuUsuarios.setText("MENU USUARIOS");
+        btnMenuUsuarios.setText("ADMINISTRAR USUARIOS");
         btnMenuUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -64,7 +66,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnControlDeArticulos.setBackground(new java.awt.Color(255, 255, 255));
         btnControlDeArticulos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnControlDeArticulos.setForeground(new java.awt.Color(153, 153, 153));
-        btnControlDeArticulos.setText("CONTROL DE ARTICULOS");
+        btnControlDeArticulos.setText("ADMINISTRAR ARTICULOS");
         btnControlDeArticulos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnControlDeArticulos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,31 +80,62 @@ public class Menu_administrador extends javax.swing.JFrame {
             }
         });
 
+        btnAdminInventario.setBackground(new java.awt.Color(255, 255, 255));
+        btnAdminInventario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAdminInventario.setForeground(new java.awt.Color(153, 153, 153));
+        btnAdminInventario.setText("ADMINISTRAR INVENTARIO");
+        btnAdminInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdminInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdminInventarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAdminInventarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAdminInventarioMouseExited(evt);
+            }
+        });
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("QUE DESEA HACER HOY?");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnControlDeArticulos)
-                    .addComponent(btnMenuUsuarios))
-                .addGap(25, 25, 25))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnControlDeArticulos)
+                            .addComponent(jLabel1)
+                            .addComponent(btnMenuUsuarios)
+                            .addComponent(btnAdminInventario))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(btnMenuUsuarios)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(27, 27, 27)
+                .addComponent(btnMenuUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnControlDeArticulos)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAdminInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 300));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,6 +153,8 @@ public class Menu_administrador extends javax.swing.JFrame {
 
     private void btnControlDeArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnControlDeArticulosMouseClicked
         // TODO add your handling code here:
+        menuAdminArticulos MAA = new menuAdminArticulos();
+        MAA.setVisible(true);
         
     }//GEN-LAST:event_btnControlDeArticulosMouseClicked
 
@@ -148,6 +183,21 @@ public class Menu_administrador extends javax.swing.JFrame {
         MenuAdminUsuarios MU = new MenuAdminUsuarios();
         MU.setVisible(true);
     }//GEN-LAST:event_btnMenuUsuariosMouseClicked
+
+    private void btnAdminInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminInventarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminInventarioMouseClicked
+
+    private void btnAdminInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminInventarioMouseEntered
+        // TODO add your handling code here:
+        btnAdminInventario.setForeground(new java.awt.Color(0,102,102));
+
+    }//GEN-LAST:event_btnAdminInventarioMouseEntered
+
+    private void btnAdminInventarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminInventarioMouseExited
+        // TODO add your handling code here:
+        btnAdminInventario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnAdminInventarioMouseExited
 
     /**
      * @param args the command line arguments
@@ -186,9 +236,11 @@ public class Menu_administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnAdminInventario;
     private javax.swing.JLabel btnControlDeArticulos;
     private javax.swing.JLabel btnMenuUsuarios;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
