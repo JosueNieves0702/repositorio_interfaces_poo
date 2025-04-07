@@ -3,6 +3,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserCRUD {
     private Connection conexion;
@@ -85,7 +88,8 @@ public class UserCRUD {
             return -1;
         }
     }
-
+    
+    //Agregar
     public boolean insertarUsuario(String nombreDepartamento, String contraseña, String tipo_usuario) {
         // Primero obtenemos o creamos el departamento
         int idDepartamento = obtenerIdDepartamento(nombreDepartamento);
@@ -109,6 +113,70 @@ public class UserCRUD {
             
         } catch (SQLException e) {
             System.out.println("Error al insertar usuario: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    //----------------------------------------------------------------------------------------------------------------------------------
+    
+    // Método para actualizar usuario (MODIFICAR)
+    public boolean actualizarUsuario(int idUsuario, String nuevoDepartamento, String nuevaContraseña, String nuevoTipo) {
+        int idDepartamento = obtenerIdDepartamento(nuevoDepartamento);
+        if (idDepartamento == -1) {
+            idDepartamento = crearDepartamento(nuevoDepartamento);
+            if (idDepartamento == -1) return false;
+        }
+
+        String sql = "UPDATE Usuarios SET id_departamento = ?, Contraseña = ?, Tipo_usuario = ? WHERE id_usuario = ?";
+
+        try (Connection conn = Conexion_MySQL.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idDepartamento);
+            ps.setString(2, nuevaContraseña);
+            ps.setString(3, nuevoTipo);
+            ps.setInt(4, idUsuario);
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar usuario: " + e.getMessage());
+            return false;
+        }
+    }
+
+    //----------------------------------------------------------------------------------------------------------------------------------
+    
+    // Método para buscar usuario por ID (CONSULTAR POR ID)
+    public ResultSet buscarPorID(int id) throws SQLException {
+        Connection conn = Conexion_MySQL.conectar();
+        String sql = "SELECT U.id_usuario, D.Nombre_departamento as Nombre, U.Contraseña, U.Tipo_usuario as Tipo " +
+                     "FROM Usuarios U INNER JOIN Departamento D ON U.id_departamento = D.id_departamento " +
+                     "WHERE U.id_usuario = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, id);
+        return ps.executeQuery();
+    }
+    
+    // Método para obtener todos los usuarios registrados en el sistema
+   public ResultSet obtenerTodos() throws SQLException {
+        Connection conn = Conexion_MySQL.conectar();
+        String sql = "SELECT U.id_usuario, D.Nombre_departamento as Nombre, U.Contraseña, U.Tipo_usuario as Tipo " +
+                     "FROM Usuarios U INNER JOIN Departamento D ON U.id_departamento = D.id_departamento";
+        Statement stmt = conn.createStatement();
+        return stmt.executeQuery(sql);
+    }
+
+    //----------------------------------------------------------------------------------------------------------------------------------
+   
+   public boolean eliminarUsuario(int idUsuario) {
+        try (Connection conn = Conexion_MySQL.conectar()) {
+            String sql = "DELETE FROM Usuarios WHERE id_usuario = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idUsuario);
+            
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar usuario: " + e.getMessage());
             return false;
         }
     }
