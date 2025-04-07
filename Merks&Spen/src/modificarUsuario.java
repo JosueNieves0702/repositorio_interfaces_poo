@@ -7,12 +7,12 @@
  *
  * @author Joaquin
  */
-public class crearUsuario extends javax.swing.JFrame {
+public class modificarUsuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form crearUsuario
+     * Creates new form modificarUsuario
      */
-    public crearUsuario() {
+    public modificarUsuario() {
         initComponents();
     }
 
@@ -37,16 +37,16 @@ public class crearUsuario extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JLabel();
         btnAdmin = new javax.swing.JLabel();
         btnUser = new javax.swing.JLabel();
-        btnCrearUsuario = new javax.swing.JLabel();
+        btnEliminarUsuario = new javax.swing.JLabel();
+        btnIngrseId = new javax.swing.JTextField();
+        btnBuscarId = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
-        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(206, 234, 235));
-        jPanel1.setForeground(new java.awt.Color(206, 234, 235));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -55,7 +55,7 @@ public class crearUsuario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("CREAR USUARIO");
+        jLabel1.setText("MODIFICAR USUARIO");
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
@@ -160,18 +160,46 @@ public class crearUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnCrearUsuario.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnCrearUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        btnCrearUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnCrearUsuario.setText("CREAR");
-        btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCrearUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarUsuario.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        btnEliminarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminarUsuario.setText("MODIFICAR");
+        btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrearUsuarioMouseEntered(evt);
+                btnEliminarUsuarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrearUsuarioMouseExited(evt);
+                btnEliminarUsuarioMouseExited(evt);
+            }
+        });
+
+        btnIngrseId.setBackground(new java.awt.Color(255, 255, 255));
+        btnIngrseId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnIngrseId.setForeground(new java.awt.Color(153, 153, 153));
+        btnIngrseId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        btnIngrseId.setText("INGRESE ID.");
+        btnIngrseId.setBorder(null);
+        btnIngrseId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngrseIdActionPerformed(evt);
+            }
+        });
+
+        btnBuscarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnBuscarId.setForeground(new java.awt.Color(153, 153, 153));
+        btnBuscarId.setText("BUSCAR");
+        btnBuscarId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMouseExited(evt);
             }
         });
 
@@ -180,14 +208,17 @@ public class crearUsuario extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar))
-                    .addComponent(jLabel1)
                     .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -197,15 +228,23 @@ public class crearUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnUser))
                     .addComponent(jLabel2)
-                    .addComponent(btnCrearUsuario))
-                .addGap(34, 34, 34))
+                    .addComponent(btnEliminarUsuario)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnIngrseId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarId)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngrseId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarId))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -223,8 +262,8 @@ public class crearUsuario extends javax.swing.JFrame {
                     .addComponent(btnAdmin)
                     .addComponent(btnUser))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
@@ -242,7 +281,7 @@ public class crearUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 280, 260));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 32, 276, 236));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,76 +297,9 @@ public class crearUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
+    private void dptoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dptoSeleccionadoActionPerformed
         // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnCrearUsuarioMouseExited
-
-    private void btnCrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseEntered
-        // TODO add your handling code here:
-        btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnCrearUsuarioMouseEntered
-
-    private void btnUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseExited
-        // TODO add your handling code here:
-        btnUser.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnUserMouseExited
-
-    private void btnUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseEntered
-        // TODO add your handling code here:
-        btnUser.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnUserMouseEntered
-
-    private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
-        // TODO add your handling code here:
-        tipoSeleccionado.setText("USER");
-    }//GEN-LAST:event_btnUserMouseClicked
-
-    private void btnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseExited
-        // TODO add your handling code here:
-        btnAdmin.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnAdminMouseExited
-
-    private void btnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseEntered
-        // TODO add your handling code here:
-        btnAdmin.setForeground(new java.awt.Color(0,102,102));
-
-    }//GEN-LAST:event_btnAdminMouseEntered
-
-    private void btnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseClicked
-        // TODO add your handling code here:
-        tipoSeleccionado.setText("ADMIN");
-    }//GEN-LAST:event_btnAdminMouseClicked
-
-    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
-        // TODO add your handling code here:
-        btnBuscar.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnBuscarMouseExited
-
-    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
-        // TODO add your handling code here:
-        btnBuscar.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnBuscarMouseEntered
-
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-        // TODO add your handling code here:
-        buscarDpto BB = new buscarDpto();
-        BB.setVisible(true);
-    }//GEN-LAST:event_btnBuscarMouseClicked
-
-    private void tipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSeleccionadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipoSeleccionadoActionPerformed
-
-    private void txtContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraMouseReleased
-
-    private void txtContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMousePressed
-        // TODO add your handling code here:
-        txtContra.setText("");
-        txtContra.setForeground(new java.awt.Color(0,0,0));
-    }//GEN-LAST:event_txtContraMousePressed
+    }//GEN-LAST:event_dptoSeleccionadoActionPerformed
 
     private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
         // TODO add your handling code here:
@@ -338,9 +310,94 @@ public class crearUsuario extends javax.swing.JFrame {
         txtContra.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_txtContraMouseClicked
 
-    private void dptoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dptoSeleccionadoActionPerformed
+    private void txtContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dptoSeleccionadoActionPerformed
+        txtContra.setText("");
+        txtContra.setForeground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_txtContraMousePressed
+
+    private void txtContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraMouseReleased
+
+    private void tipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSeleccionadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoSeleccionadoActionPerformed
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+        // TODO add your handling code here:
+        buscarDpto BB = new buscarDpto();
+        BB.setVisible(true);
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
+        // TODO add your handling code here:
+        btnBuscar.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnBuscarMouseEntered
+
+    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
+        // TODO add your handling code here:
+        btnBuscar.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnBuscarMouseExited
+
+    private void btnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseClicked
+        // TODO add your handling code here:
+        tipoSeleccionado.setText("ADMIN");
+    }//GEN-LAST:event_btnAdminMouseClicked
+
+    private void btnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseEntered
+        // TODO add your handling code here:
+        btnAdmin.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnAdminMouseEntered
+
+    private void btnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseExited
+        // TODO add your handling code here:
+        btnAdmin.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnAdminMouseExited
+
+    private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
+        // TODO add your handling code here:
+        tipoSeleccionado.setText("USER");
+    }//GEN-LAST:event_btnUserMouseClicked
+
+    private void btnUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseEntered
+        // TODO add your handling code here:
+        btnUser.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnUserMouseEntered
+
+    private void btnUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseExited
+        // TODO add your handling code here:
+        btnUser.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnUserMouseExited
+
+    private void btnEliminarUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseEntered
+        // TODO add your handling code here:
+        btnEliminarUsuario.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseEntered
+
+    private void btnEliminarUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseExited
+        // TODO add your handling code here:
+        btnEliminarUsuario.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnEliminarUsuarioMouseExited
+
+    private void btnIngrseIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngrseIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngrseIdActionPerformed
+
+    private void btnBuscarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnBuscarIdMouseClicked
+
+    private void btnBuscarIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseEntered
+        // TODO add your handling code here:
+        btnBuscarId.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnBuscarIdMouseEntered
+
+    private void btnBuscarIdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseExited
+        // TODO add your handling code here:
+        btnBuscarId.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnBuscarIdMouseExited
 
     /**
      * @param args the command line arguments
@@ -359,20 +416,20 @@ public class crearUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(crearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(crearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(crearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(crearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(modificarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new crearUsuario().setVisible(true);
+                new modificarUsuario().setVisible(true);
             }
         });
     }
@@ -380,7 +437,9 @@ public class crearUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAdmin;
     private javax.swing.JLabel btnBuscar;
-    private javax.swing.JLabel btnCrearUsuario;
+    private javax.swing.JLabel btnBuscarId;
+    private javax.swing.JLabel btnEliminarUsuario;
+    private javax.swing.JTextField btnIngrseId;
     private javax.swing.JLabel btnUser;
     private javax.swing.JTextField dptoSeleccionado;
     private javax.swing.JLabel jLabel1;
