@@ -214,8 +214,8 @@ public class eliminarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         
        //1. Obtener el valor del text, en donde se coloca el id para realizar consultas
-        String idtext=btnBuscarId.getText();
-        
+        String idtext=txtIngresarId.getText();
+       
         //2. Se valida que no exista vacío
         
         if(idtext.isEmpty()){
