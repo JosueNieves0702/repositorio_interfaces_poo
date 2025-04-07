@@ -3,20 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/menuAdminInventario.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/modificarUsuario.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/Menu_administrador.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/crearArticulo.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/MenuAdminUsuarios.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/modificarArticulo.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/menuAdminArticulos.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/eliminarUsuario.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/Login.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/consultarExistencia.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/crearUsuario.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/menuAdminPedidos.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/buscarDpto.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/GitHub/repositorio_interfaces_poo/Merks&amp;Spen/src/eliminarArticulo.java</file>
+            <file>file:/C:/repositorio_interfaces_poo/Merks&amp;Spen/src/Menu_administrador.java</file>
+            <file>file:/C:/repositorio_interfaces_poo/Merks&amp;Spen/src/UserCRUD.java</file>
+            <file>file:/C:/repositorio_interfaces_poo/Merks&amp;Spen/src/Login.java</file>
         </group>
     </open-files>
 </project-private>
