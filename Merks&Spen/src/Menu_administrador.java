@@ -209,6 +209,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         MenuAdminUsuarios MU = new MenuAdminUsuarios();
         MU.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnMenuUsuariosMouseClicked
 
     private void btnAdminInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminInventarioMouseClicked

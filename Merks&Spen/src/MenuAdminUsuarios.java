@@ -14,6 +14,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
      */
     public MenuAdminUsuarios() {
         initComponents();
+        this.setTitle("Usuarios");
     }
 
     /**
@@ -31,6 +32,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
         btnModificarUsuario = new javax.swing.JLabel();
         btnCrearUsuario = new javax.swing.JLabel();
         btnEliminarUsuario = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -97,6 +99,23 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -107,7 +126,8 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
                     .addComponent(btnCrearUsuario)
                     .addComponent(jLabel1)
                     .addComponent(btnModificarUsuario)
-                    .addComponent(btnEliminarUsuario))
+                    .addComponent(btnEliminarUsuario)
+                    .addComponent(btnRegresar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -121,7 +141,9 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
                 .addComponent(btnModificarUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEliminarUsuario)
-                .addGap(94, 94, 94))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegresar)
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,8 +187,9 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
 
     private void btnCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseClicked
         // TODO add your handling code here:
-            crearUsuario CU = new crearUsuario(); // Crear instancia
-    CU.setVisible(true); // Mostrar la nueva ventana
+        crearUsuario CU = new crearUsuario(); // Crear instancia
+        CU.setVisible(true); // Mostrar la nueva ventana
+        this.dispose();
 
     }//GEN-LAST:event_btnCrearUsuarioMouseClicked
 
@@ -204,6 +227,23 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
         eliminarUsuario EU = new eliminarUsuario();
         EU.setVisible(true);
     }//GEN-LAST:event_btnEliminarUsuarioMouseClicked
+
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Menu_administrador MA = new Menu_administrador();
+        MA.setVisible(true);
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
 
     /**
      * @param args the command line arguments
@@ -251,6 +291,7 @@ public class MenuAdminUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel btnCrearUsuario;
     private javax.swing.JLabel btnEliminarUsuario;
     private javax.swing.JLabel btnModificarUsuario;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
