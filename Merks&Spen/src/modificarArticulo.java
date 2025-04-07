@@ -49,7 +49,7 @@ public class modificarArticulo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("MODIFICAR ARTICULO");
+        jLabel2.setText("MODIFICAR ARTÍCULO");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -58,7 +58,6 @@ public class modificarArticulo extends javax.swing.JFrame {
         jLabel3.setText("NOMBRE:");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtNombreArticulo.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtNombreArticulo.setForeground(new java.awt.Color(153, 153, 153));
         txtNombreArticulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -86,7 +85,6 @@ public class modificarArticulo extends javax.swing.JFrame {
         jLabel4.setText("STOCK:");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtCantidadArticulo.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidadArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtCantidadArticulo.setForeground(new java.awt.Color(153, 153, 153));
         txtCantidadArticulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -104,7 +102,6 @@ public class modificarArticulo extends javax.swing.JFrame {
             }
         });
 
-        txtIngresarId.setBackground(new java.awt.Color(255, 255, 255));
         txtIngresarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtIngresarId.setForeground(new java.awt.Color(153, 153, 153));
         txtIngresarId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
