@@ -152,7 +152,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Cantidad"
+                "Id", "Nombre", "Stock"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -243,6 +243,9 @@ public class eliminarUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarIdMousePressed
 
+    
+    //FIN MÉTODO BUSCAR POR ID
+    
     private void btnEliminarUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMousePressed
         // TODO add your handling code here:
         //1. Se guarda en la variable lo que el usuario a ingresado

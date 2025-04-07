@@ -7,11 +7,21 @@
  *
  * @author coral
  */
+
+
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 public class consultarArticulo extends javax.swing.JFrame {
 
     /**
      * Creates new form consultarArticulo
      */
+    
+     private UserCRUD crud;
+     
     public consultarArticulo() {
         initComponents();
     }
@@ -25,21 +35,393 @@ public class consultarArticulo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtNombreArticulo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtCantidadArticulo = new javax.swing.JTextField();
+        btnConsultarTodos = new javax.swing.JLabel();
+        btnbuscarid = new javax.swing.JLabel();
+        txtIngresarId = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Stock"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Stock"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("CONSULTAR ARTÍCULO");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("NOMBRE:");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        txtNombreArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtNombreArticulo.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombreArticulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNombreArticulo.setText("INGRESE NOMBRE");
+        txtNombreArticulo.setBorder(null);
+        txtNombreArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombreArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreArticuloMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNombreArticuloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtNombreArticuloMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreArticuloMousePressed(evt);
+            }
+        });
+        txtNombreArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreArticuloActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("STOCK:");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        txtCantidadArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtCantidadArticulo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCantidadArticulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtCantidadArticulo.setText("INGRESE CANTIDAD");
+        txtCantidadArticulo.setBorder(null);
+        txtCantidadArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCantidadArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCantidadArticuloMousePressed(evt);
+            }
+        });
+        txtCantidadArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadArticuloActionPerformed(evt);
+            }
+        });
+
+        btnConsultarTodos.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnConsultarTodos.setForeground(new java.awt.Color(153, 153, 153));
+        btnConsultarTodos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnConsultarTodos.setText("CONSULTAR TODOS");
+        btnConsultarTodos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsultarTodos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnConsultarTodosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnConsultarTodosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnConsultarTodosMousePressed(evt);
+            }
+        });
+
+        btnbuscarid.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnbuscarid.setForeground(new java.awt.Color(153, 153, 153));
+        btnbuscarid.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnbuscarid.setText("BUSCAR");
+        btnbuscarid.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnbuscarid.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbuscaridMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbuscaridMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnbuscaridMousePressed(evt);
+            }
+        });
+
+        txtIngresarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtIngresarId.setForeground(new java.awt.Color(153, 153, 153));
+        txtIngresarId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtIngresarId.setText("INGRESE ID");
+        txtIngresarId.setBorder(null);
+        txtIngresarId.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtIngresarId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtIngresarIdMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtIngresarIdMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtIngresarIdMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtIngresarIdMousePressed(evt);
+            }
+        });
+        txtIngresarId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIngresarIdActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnbuscarid))
+                    .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(btnConsultarTodos))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel2)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4)
+                .addGap(12, 12, 12)
+                .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuscarid))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(btnConsultarTodos)
+                .addGap(20, 20, 20))
+        );
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 300));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Stock"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 200, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNombreArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreArticuloMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreArticuloMouseClicked
+
+    private void txtNombreArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreArticuloMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreArticuloMouseEntered
+
+    private void txtNombreArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreArticuloMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreArticuloMouseExited
+
+    private void txtNombreArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreArticuloMousePressed
+        // TODO add your handling code here:
+        String contra = new String(txtNombreArticulo.getText());
+        if (contra.equals("Ingrese el nombre")) {
+            txtNombreArticulo.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtNombreArticulo.setForeground(new java.awt.Color(0, 0, 0));
+
+    }//GEN-LAST:event_txtNombreArticuloMousePressed
+
+    private void txtCantidadArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadArticuloMousePressed
+        // TODO add your handling code here:
+        String contra = new String(txtCantidadArticulo.getText());
+        if (contra.equals("Ingrese la cantidad")) {
+            txtCantidadArticulo.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtCantidadArticulo.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_txtCantidadArticuloMousePressed
+
+    private void txtCantidadArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadArticuloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadArticuloActionPerformed
+
+    private void btnConsultarTodosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarTodosMouseEntered
+        // TODO add your handling code here:
+        btnConsultarTodos.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnConsultarTodosMouseEntered
+
+    private void btnConsultarTodosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarTodosMouseExited
+        // TODO add your handling code here:
+        btnConsultarTodos.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnConsultarTodosMouseExited
+
+    private void btnConsultarTodosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarTodosMousePressed
+        // TODO add your handling code here:
+       
+        ResultSet todos = crud.obtenertodos();
+        DefaultTableModel modelot = (DefaultTableModel) jTable3.getModel();
+        modelot.setRowCount(0);
+        
+        try{
+            
+            while(todos.next()){
+                
+                modelot.addRow(new Object[]{todos.getInt("id_articulo"), todos.getString("Nombre_articulo"), todos.getString("cantidad_articulo")});
+                //Aquí se colocan los nombres tal y como están en la Base de datos
+            }
+            
+        }
+        
+        catch(SQLException x){
+            
+            System.out.println("Error al llenar la tabla"+x.getMessage());
+            
+        }
+   
+    }//GEN-LAST:event_btnConsultarTodosMousePressed
+
+    private void btnbuscaridMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaridMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscaridMouseEntered
+
+    private void btnbuscaridMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaridMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscaridMouseExited
+
+    private void btnbuscaridMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaridMousePressed
+        // TODO add your handling code here:
+        //1. Obtener el valor del text, en donde se coloca el id para realizar consultas
+        String idtext=txtIngresarId.getText();
+        
+        //2. Se valida que no exista vacío
+        
+        if(idtext.isEmpty()){
+            JOptionPane.showMessageDialog(this, "El campo id es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. Búsqueda, llenado de la tabla
+        try{
+            
+            int id=Integer.parseInt(idtext);
+            ResultSet rs = crud.buscarporid(id);
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);//Limpiar para ingresa otro valor
+            
+            if(rs.next()){
+                modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
+            }
+       }
+        
+        catch(SQLException e){
+            
+            System.out.println("Error al llenar la tabla"+e.getMessage());
+        
+        }
+       
+        
+        
+    }//GEN-LAST:event_btnbuscaridMousePressed
+
+    private void txtIngresarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresarIdMouseClicked
+
+    private void txtIngresarIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresarIdMouseEntered
+
+    private void txtIngresarIdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresarIdMouseExited
+
+    private void txtIngresarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMousePressed
+        // TODO add your handling code here:
+        String contra = new String(txtIngresarId.getText());
+        if (contra.equals("Ingrese el id")) {
+            txtIngresarId.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtIngresarId.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_txtIngresarIdMousePressed
+
+    private void txtIngresarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresarIdActionPerformed
+
+    private void txtNombreArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArticuloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreArticuloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +459,21 @@ public class consultarArticulo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnConsultarTodos;
+    private javax.swing.JLabel btnbuscarid;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextField txtCantidadArticulo;
+    private javax.swing.JTextField txtIngresarId;
+    private javax.swing.JTextField txtNombreArticulo;
     // End of variables declaration//GEN-END:variables
 }

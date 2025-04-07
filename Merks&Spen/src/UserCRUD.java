@@ -13,6 +13,30 @@ public class UserCRUD {
     
     //----------------------------------------------------------------------------------------------------------------------------------
     
+    
+    public String Login(String departamento, String contraseña){
+        String tipoUsuario = null;
+        String Login = "SELECT U.Tipo_usuario FROM Usuarios U "+
+                       "INNER JOIN Departamento D ON U.id_departamento = D.id_departamento "+
+                       "WHERE D.Nombre_departamento = ? AND U.Contraseña = ?";
+        try{
+            PreparedStatement ps = conexion.prepareStatement(Login);
+            ps.setString(1, departamento);
+            ps.setString(2, contraseña);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                tipoUsuario = rs.getString("Tipo_usuario");
+            }
+            rs.close();
+            ps.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    return tipoUsuario;
+    }
+    
+    
     public ResultSet buscarporid(int id){
         String sqlBuscar= "SELECT * FROM Articulos WHERE id_articulo=?";//?--> parámetro pendiente
         
@@ -36,28 +60,26 @@ public class UserCRUD {
     }//Fin del Método para Consultar por id
     
     
+      public ResultSet obtenertodos(){
+        
+        //**NO SE PASAN NINGÚN PARÁMETRO, PORQUE SE DESEA OBTENER TODO Y NO UNO EN ESPECÍFICO**
+        String sqltodos="SELECT * FROM Articulos";
+        
+        try
+        {
+            PreparedStatement ps = conexion.prepareStatement(sqltodos);
+            return ps.executeQuery();//Regresa el ResultSet, es decir la consulta
+        }
+        
+        catch(SQLException s){
+            
+            System.out.println("Error al consultar todos los datos"+s.getMessage());
+            return null;
+        }
+        
+    }//Fin del Método para obtener todos los datos de la BD
     
-    public String Login(String departamento, String contraseña){
-        String tipoUsuario = null;
-        String Login = "SELECT U.Tipo_usuario FROM Usuarios U "+
-                       "INNER JOIN Departamento D ON U.id_departamento = D.id_departamento "+
-                       "WHERE D.Nombre_departamento = ? AND U.Contraseña = ?";
-        try{
-            PreparedStatement ps = conexion.prepareStatement(Login);
-            ps.setString(1, departamento);
-            ps.setString(2, contraseña);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                tipoUsuario = rs.getString("Tipo_usuario");
-            }
-            rs.close();
-            ps.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-    return tipoUsuario;
-    }
+    
     
     
     public boolean creararticulo(String nomarticulo, String numstock){
