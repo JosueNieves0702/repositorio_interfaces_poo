@@ -6,14 +6,23 @@
 /**
  *
  * @author Joaquin
- */
-public class realizarPedido extends javax.swing.JFrame {
+ */import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+public class verPedido extends javax.swing.JFrame {
+
+ 
 
     /**
-     * Creates new form realizarPedido
+     * Creates new form verPedido
      */
-    public realizarPedido() {
+    public verPedido() {
         initComponents();
+        rellenarCombos.llenarComboDesdeBD(combArticulo,"Nombre_articulo" , "Articulos");
     }
 
     /**
@@ -48,7 +57,7 @@ public class realizarPedido extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("HACER PEDIDO");
+        jLabel1.setText("VER PEDIDOS");
 
         jLabel2.setBackground(new java.awt.Color(153, 153, 153));
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -131,7 +140,7 @@ public class realizarPedido extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,6 +153,8 @@ public class realizarPedido extends javax.swing.JFrame {
     private void combArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combArticuloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combArticuloActionPerformed
+
+
 
     /**
      * @param args the command line arguments
@@ -162,20 +173,20 @@ public class realizarPedido extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(realizarPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(verPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(realizarPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(verPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(realizarPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(verPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(realizarPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(verPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new realizarPedido().setVisible(true);
+                new verPedido().setVisible(true);
             }
         });
     }

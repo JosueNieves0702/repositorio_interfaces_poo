@@ -16,8 +16,16 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        combDpto.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        String seleccionado = (String) combDpto.getSelectedItem();
+        txtDepartamento.setText(seleccionado); // o puedes mostrar en otro txt
+    }
+});
+
         this.setTitle("LOGIN");
         verificarConexion();
+        rellenarCombos.llenarComboDesdeBD(combDpto, "Departamento", "Nombre_departamento");
     }
     
     private void verificarConexion(){
@@ -47,6 +55,7 @@ public class Login extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JLabel();
         txtDepartamento = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JLabel();
+        combDpto = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -150,6 +159,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        combDpto.setBackground(new java.awt.Color(255, 255, 255));
+        combDpto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        combDpto.setForeground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -157,7 +170,10 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnIngresar)
                         .addGap(18, 18, 18)
@@ -167,7 +183,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jLabel3)
                         .addComponent(txtContraseña)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,8 +193,10 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,7 +204,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 300));
@@ -278,6 +296,7 @@ public class Login extends javax.swing.JFrame {
 
     private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
         // TODO add your handling code here:
+         
     }//GEN-LAST:event_txtDepartamentoActionPerformed
 
     private void txtDepartamentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMousePressed
@@ -338,6 +357,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnIngresar;
     private javax.swing.JLabel btnLimpiar;
+    private javax.swing.JComboBox<String> combDpto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
