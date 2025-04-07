@@ -7,6 +7,9 @@
  *
  * @author Joaquin
  */
+
+import javax.swing.JOptionPane;
+
 public class Menu_administrador extends javax.swing.JFrame {
 
     /**
@@ -34,6 +37,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnAdminInventario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnAdministrarPedidos = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -126,6 +130,23 @@ public class Menu_administrador extends javax.swing.JFrame {
             }
         });
 
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(255, 102, 102));
+        btnCerrarSesion.setText("CERRAR SESIÓN");
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,7 +161,8 @@ public class Menu_administrador extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(btnMenuUsuarios)
                             .addComponent(btnAdminInventario)
-                            .addComponent(btnAdministrarPedidos))
+                            .addComponent(btnAdministrarPedidos)
+                            .addComponent(btnCerrarSesion))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -159,7 +181,9 @@ public class Menu_administrador extends javax.swing.JFrame {
                 .addComponent(btnAdminInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdministrarPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
@@ -245,6 +269,26 @@ public class Menu_administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
+        // TODO add your handling code here:
+        int R = JOptionPane.showConfirmDialog(this, "¿Seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
+        if(R == JOptionPane.YES_OPTION){
+            this.dispose();
+            Login Login = new Login();
+            Login.setVisible(true);
+        }
+    }//GEN-LAST:event_btnCerrarSesionMouseClicked
+
+    private void btnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseEntered
+        // TODO add your handling code here:
+        btnCerrarSesion.setForeground(new java.awt.Color(255,0,0));
+    }//GEN-LAST:event_btnCerrarSesionMouseEntered
+
+    private void btnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseExited
+        // TODO add your handling code here:
+        btnCerrarSesion.setForeground(new java.awt.Color(255,102,102));
+    }//GEN-LAST:event_btnCerrarSesionMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -284,6 +328,7 @@ public class Menu_administrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAdminInventario;
     private javax.swing.JLabel btnAdministrarPedidos;
+    private javax.swing.JLabel btnCerrarSesion;
     private javax.swing.JLabel btnControlDeArticulos;
     private javax.swing.JLabel btnMenuUsuarios;
     private javax.swing.JLabel jLabel1;
