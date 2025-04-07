@@ -6,13 +6,7 @@
 /**
  *
  * @author Joaquin
- */import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
+ */
 public class verPedido extends javax.swing.JFrame {
 
  
@@ -63,7 +57,7 @@ public class verPedido extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("INGRESE SU ARTICULO");
+        jLabel2.setText("BUSCAR PEDIDO");
 
         combArticulo.setBackground(new java.awt.Color(255, 255, 255));
         combArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -140,7 +134,7 @@ public class verPedido extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

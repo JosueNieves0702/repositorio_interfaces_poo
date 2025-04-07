@@ -14,6 +14,8 @@ public class crearUsuario extends javax.swing.JFrame {
      */
     public crearUsuario() {
         initComponents();
+       
+       
     }
 
     /**
@@ -31,13 +33,13 @@ public class crearUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        dptoSeleccionado = new javax.swing.JTextField();
         txtContra = new javax.swing.JPasswordField();
         tipoSeleccionado = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JLabel();
         btnAdmin = new javax.swing.JLabel();
         btnUser = new javax.swing.JLabel();
         btnCrearUsuario = new javax.swing.JLabel();
+        txtDepartamento = new javax.swing.JTextField();
+        combDpto = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -70,18 +72,6 @@ public class crearUsuario extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("TIPO DE USUARIO:");
 
-        dptoSeleccionado.setBackground(new java.awt.Color(255, 255, 255));
-        dptoSeleccionado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        dptoSeleccionado.setForeground(new java.awt.Color(153, 153, 153));
-        dptoSeleccionado.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        dptoSeleccionado.setText("DPTO.");
-        dptoSeleccionado.setBorder(null);
-        dptoSeleccionado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dptoSeleccionadoActionPerformed(evt);
-            }
-        });
-
         txtContra.setBackground(new java.awt.Color(255, 255, 255));
         txtContra.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtContra.setForeground(new java.awt.Color(153, 153, 153));
@@ -109,22 +99,6 @@ public class crearUsuario extends javax.swing.JFrame {
         tipoSeleccionado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoSeleccionadoActionPerformed(evt);
-            }
-        });
-
-        btnBuscar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseExited(evt);
             }
         });
 
@@ -167,6 +141,9 @@ public class crearUsuario extends javax.swing.JFrame {
         btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearUsuarioMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCrearUsuarioMouseEntered(evt);
             }
@@ -175,30 +152,65 @@ public class crearUsuario extends javax.swing.JFrame {
             }
         });
 
+        txtDepartamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtDepartamento.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtDepartamento.setForeground(new java.awt.Color(153, 153, 153));
+        txtDepartamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDepartamento.setText("DPTO.");
+        txtDepartamento.setBorder(null);
+        txtDepartamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDepartamentoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtDepartamentoMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDepartamentoMousePressed(evt);
+            }
+        });
+        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepartamentoActionPerformed(evt);
+            }
+        });
+
+        combDpto.setBackground(new java.awt.Color(255, 255, 255));
+        combDpto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        combDpto.setForeground(new java.awt.Color(153, 153, 153));
+        combDpto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combDptoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar))
-                    .addComponent(jLabel1)
-                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(btnAdmin)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUser))
-                    .addComponent(jLabel2)
-                    .addComponent(btnCrearUsuario))
-                .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1)
+                            .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(btnAdmin)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnUser))
+                            .addComponent(jLabel2)
+                            .addComponent(btnCrearUsuario))
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,9 +221,9 @@ public class crearUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(18, 18, 18)
+                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addComponent(jLabel3)
                 .addGap(2, 2, 2)
                 .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,7 +239,7 @@ public class crearUsuario extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 300));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -299,22 +311,6 @@ public class crearUsuario extends javax.swing.JFrame {
         tipoSeleccionado.setText("ADMIN");
     }//GEN-LAST:event_btnAdminMouseClicked
 
-    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
-        // TODO add your handling code here:
-        btnBuscar.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnBuscarMouseExited
-
-    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
-        // TODO add your handling code here:
-        btnBuscar.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnBuscarMouseEntered
-
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-        // TODO add your handling code here:
-        buscarDpto BB = new buscarDpto();
-        BB.setVisible(true);
-    }//GEN-LAST:event_btnBuscarMouseClicked
-
     private void tipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSeleccionadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoSeleccionadoActionPerformed
@@ -338,9 +334,40 @@ public class crearUsuario extends javax.swing.JFrame {
         txtContra.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_txtContraMouseClicked
 
-    private void dptoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dptoSeleccionadoActionPerformed
+    private void btnCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_dptoSeleccionadoActionPerformed
+        
+    }//GEN-LAST:event_btnCrearUsuarioMouseClicked
+
+    private void txtDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepartamentoMouseClicked
+
+    private void txtDepartamentoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMouseEntered
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtDepartamentoMouseEntered
+
+    private void txtDepartamentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMousePressed
+        // TODO add your handling code here:
+        String Depa = "";
+        Depa = txtDepartamento.getText();
+        if(Depa.equals("DPTO.")){
+            txtDepartamento.setText(""); //Limpia solo si está el texto por defecto
+        }
+        txtDepartamento.setForeground(new java.awt.Color(0, 0, 0)); //Cambia a negro
+    }//GEN-LAST:event_txtDepartamentoMousePressed
+
+    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
+        // TODO add your handling code here
+        String seleccionado = (String) combDpto.getSelectedItem();
+        txtDepartamento.setText(seleccionado);
+
+    }//GEN-LAST:event_txtDepartamentoActionPerformed
+
+    private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combDptoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,10 +406,9 @@ public class crearUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAdmin;
-    private javax.swing.JLabel btnBuscar;
     private javax.swing.JLabel btnCrearUsuario;
     private javax.swing.JLabel btnUser;
-    private javax.swing.JTextField dptoSeleccionado;
+    private javax.swing.JComboBox<String> combDpto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -393,5 +419,6 @@ public class crearUsuario extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField tipoSeleccionado;
     private javax.swing.JPasswordField txtContra;
+    private javax.swing.JTextField txtDepartamento;
     // End of variables declaration//GEN-END:variables
 }
