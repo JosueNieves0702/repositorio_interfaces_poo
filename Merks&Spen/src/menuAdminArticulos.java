@@ -43,12 +43,12 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("ARTICULOS");
+        jLabel1.setText("ARTÍCULOS");
 
         btnModificarArticulo.setBackground(new java.awt.Color(255, 255, 255));
         btnModificarArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnModificarArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        btnModificarArticulo.setText("MODIFICAR ARTICULO");
+        btnModificarArticulo.setText("MODIFICAR ARTÍCULO");
         btnModificarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModificarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -65,7 +65,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         btnCrearArticulo.setBackground(new java.awt.Color(255, 255, 255));
         btnCrearArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCrearArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        btnCrearArticulo.setText("CREAR ARTICULO");
+        btnCrearArticulo.setText("CREAR ARTÍCULO");
         btnCrearArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -82,7 +82,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         btnEliminarArticulo.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminarArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnEliminarArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        btnEliminarArticulo.setText("ELIMINAR ARTIULO");
+        btnEliminarArticulo.setText("ELIMINAR ARTÍCULO");
         btnEliminarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
