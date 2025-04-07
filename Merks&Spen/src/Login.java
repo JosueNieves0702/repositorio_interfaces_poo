@@ -76,6 +76,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("CONTRASEÑA:");
 
+        txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
         txtContraseña.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(153, 153, 153));
         txtContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -106,6 +107,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txtDepartamento.setBackground(new java.awt.Color(255, 255, 255));
         txtDepartamento.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtDepartamento.setForeground(new java.awt.Color(153, 153, 153));
         txtDepartamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -114,6 +116,9 @@ public class Login extends javax.swing.JFrame {
         txtDepartamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtDepartamentoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtDepartamentoMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtDepartamentoMousePressed(evt);
@@ -161,7 +166,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jLabel3)
                         .addComponent(txtContraseña)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,17 +175,17 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 300));
@@ -226,10 +231,13 @@ public class Login extends javax.swing.JFrame {
         String tipo = crud.Login(depa, contra);
         if(tipo != null){
             if(tipo.equals("Administrador")){
-                JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenid@ "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
-                
+                JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenido "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                Menu_administrador MA = new Menu_administrador();
+                MA.setVisible(true);
             } else if (tipo.equals("Usuario")){
                 JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenid@ "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                Menu_usuarios MU = new Menu_usuarios();
+                MU.setVisible(true);
                 
             }
             this.dispose();
@@ -246,24 +254,6 @@ public class Login extends javax.swing.JFrame {
         }
         txtContraseña.setForeground(new java.awt.Color(0, 0, 0)); // Cambia a negro
     }//GEN-LAST:event_txtContraseñaMousePressed
-
-    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDepartamentoActionPerformed
-
-    private void txtDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDepartamentoMouseClicked
-
-    private void txtDepartamentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMousePressed
-        // TODO add your handling code here:
-        String Depa = "";
-        Depa = txtDepartamento.getText();
-        if(Depa.equals("DPTO.")){
-            txtDepartamento.setText(""); //Limpia solo si está el texto por defecto
-        }
-        txtDepartamento.setForeground(new java.awt.Color(0, 0, 0)); //Cambia a negro           
-    }//GEN-LAST:event_txtDepartamentoMousePressed
 
     private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
         LimpiarCampos();
@@ -284,6 +274,29 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnLimpiar.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepartamentoActionPerformed
+
+    private void txtDepartamentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMousePressed
+        // TODO add your handling code here:
+        String Depa = "";
+        Depa = txtDepartamento.getText();
+        if(Depa.equals("DPTO.")){
+            txtDepartamento.setText(""); //Limpia solo si está el texto por defecto
+        }
+        txtDepartamento.setForeground(new java.awt.Color(0, 0, 0)); //Cambia a negro
+    }//GEN-LAST:event_txtDepartamentoMousePressed
+
+    private void txtDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepartamentoMouseClicked
+
+    private void txtDepartamentoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtDepartamentoMouseEntered
 
     /**
      * @param args the command line arguments
