@@ -13,6 +13,30 @@ public class UserCRUD {
     
     //----------------------------------------------------------------------------------------------------------------------------------
     
+    public ResultSet buscarporid(int id){
+        String sqlBuscar= "SELECT * FROM Articulos WHERE id_articulo=?";//?--> parámetro pendiente
+        
+        
+        //Si hay error no se romperá y capturará los errores
+        try{
+            PreparedStatement ps=conexion.prepareStatement(sqlBuscar);
+            ps.setInt(1, id);
+            return ps.executeQuery();//devuelve un ResultSet
+            
+        }
+        
+        catch(SQLException e){
+            //Se imprime en consola un mensaje en caso de que no se ejecute la consulta
+            System.out.println("Error al buscar por id"+e.getMessage());//Las excepciones son para observar donde está el error
+            return null;
+        }
+            
+        
+        
+    }//Fin del Método para Consultar por id
+    
+    
+    
     public String Login(String departamento, String contraseña){
         String tipoUsuario = null;
         String Login = "SELECT U.Tipo_usuario FROM Usuarios U "+
@@ -43,7 +67,7 @@ public class UserCRUD {
         try{ //Se asigna la sentencia y los parámetros para su ejecución
             PreparedStatement ps=conexion.prepareStatement(insertSQL);
             
-            ps.setString(1, nomarticulo);
+            ps.setString(1, nomarticulo);//En Java está como "nomarticulo y en la BD está "Nombre_articulo"
             ps.setString(2, numstock);//En Java está como "numstock y en la BD está "cantidad_articulo"
             return ps.executeUpdate()>0;
         }
@@ -54,7 +78,7 @@ public class UserCRUD {
             return false;
         }
     
-    }//Fin de la creación de artículo
+    }//Fin de la CREACIÓN de artículo
     
     
     

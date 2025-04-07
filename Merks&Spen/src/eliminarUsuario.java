@@ -7,11 +7,22 @@
  *
  * @author Joaquin
  */
+
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 public class eliminarUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form eliminarUsuario
      */
+    
+    private UserCRUD crud;
+    
+    
     public eliminarUsuario() {
         initComponents();
     }
@@ -63,9 +74,11 @@ public class eliminarUsuario extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnBuscarIdMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMousePressed(evt);
+            }
         });
 
-        txtIngresarId.setBackground(new java.awt.Color(255, 255, 255));
         txtIngresarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtIngresarId.setForeground(new java.awt.Color(153, 153, 153));
         txtIngresarId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -94,6 +107,9 @@ public class eliminarUsuario extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEliminarUsuarioMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarUsuarioMousePressed(evt);
             }
         });
 
@@ -130,13 +146,13 @@ public class eliminarUsuario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nombre", "Cantidad"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -193,6 +209,90 @@ public class eliminarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnEliminarUsuario.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnEliminarUsuarioMouseExited
+
+    private void btnBuscarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMousePressed
+        // TODO add your handling code here:
+        
+       //1. Obtener el valor del text, en donde se coloca el id para realizar consultas
+        String idtext=btnBuscarId.getText();
+        
+        //2. Se valida que no exista vacío
+        
+        if(idtext.isEmpty()){
+            JOptionPane.showMessageDialog(this, "El campo id es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. Búsqueda, llenado de la tabla
+        try{
+            
+            int id=Integer.parseInt(idtext);
+            ResultSet rs = crud.buscarporid(id);
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);//Limpiar para ingresa otro valor
+            
+            if(rs.next()){
+                modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
+            }
+       }
+        
+        catch(SQLException e){
+            
+            System.out.println("Error al llenar la tabla"+e.getMessage());
+        
+        }
+    }//GEN-LAST:event_btnBuscarIdMousePressed
+
+    private void btnEliminarUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMousePressed
+        // TODO add your handling code here:
+        //1. Se guarda en la variable lo que el usuario a ingresado
+        
+        String ideliminar=txtIngresarId.getText();
+        
+        //2. Se valida que no existan vacíos
+        
+        if(ideliminar.isEmpty()){
+            
+            JOptionPane.showMessageDialog(this, "El campo es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. El usuario ingresa dato para actualizar el campo de correo
+        
+        UserCRUD crud = new UserCRUD();
+     
+        //4. Se pregunta al usuario si desea eliminar el registro
+        
+        
+        int respuesta = JOptionPane.showConfirmDialog(
+            null, 
+            "¿Estás seguro de que quieres eliminar este registro?", 
+            "Confirmar eliminación", 
+            JOptionPane.YES_NO_OPTION
+        );
+        
+        if (respuesta == JOptionPane.YES_OPTION){
+            
+        //5. Se muestra el status de la elimiación/DELETE
+                
+            //Si selecciona la opción "YES/SI" se elimina el registro correspondiente a ese id
+            
+            boolean status=crud.eliminararticulo(ideliminar);
+            
+            if(status){
+       JOptionPane.showMessageDialog(this,"Registro eliminado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+            
+        }
+            
+        else
+        {       
+            //En caso contrario muestra el siguiente mensaje:
+            JOptionPane.showMessageDialog(this,"Registro no eliminado",  "No eliminado",JOptionPane.INFORMATION_MESSAGE);  
+        }
+        
+    }//GEN-LAST:event_btnEliminarUsuarioMousePressed
 
     /**
      * @param args the command line arguments
