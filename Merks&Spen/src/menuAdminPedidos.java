@@ -25,21 +25,154 @@ public class menuAdminPedidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnModificarArticulo = new javax.swing.JLabel();
+        btnCrearArticulo = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationByPlatform(true);
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setText("PEDIDOS");
+
+        btnModificarArticulo.setBackground(new java.awt.Color(255, 255, 255));
+        btnModificarArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnModificarArticulo.setForeground(new java.awt.Color(153, 153, 153));
+        btnModificarArticulo.setText("CONSULTAR PEDIDO");
+        btnModificarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarArticuloMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModificarArticuloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModificarArticuloMouseExited(evt);
+            }
+        });
+
+        btnCrearArticulo.setBackground(new java.awt.Color(255, 255, 255));
+        btnCrearArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCrearArticulo.setForeground(new java.awt.Color(153, 153, 153));
+        btnCrearArticulo.setText("CAMBIAR ESTATUS");
+        btnCrearArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrearArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearArticuloMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrearArticuloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearArticuloMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrearArticulo)
+                    .addComponent(btnModificarArticulo)
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(109, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearArticulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnModificarArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 243, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnModificarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMouseClicked
+        // TODO add your handling code here:
+        modificarArticulo MA = new modificarArticulo();
+        MA.setVisible(true);
+
+    }//GEN-LAST:event_btnModificarArticuloMouseClicked
+
+    private void btnModificarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMouseEntered
+        // TODO add your handling code here:
+        btnModificarArticulo.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnModificarArticuloMouseEntered
+
+    private void btnModificarArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMouseExited
+        // TODO add your handling code here:
+        btnModificarArticulo.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnModificarArticuloMouseExited
+
+    private void btnCrearArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseClicked
+        // TODO add your handling code here:
+        crearArticulo CA = new crearArticulo(); // Crear instancia
+        CA.setVisible(true); // Mostrar la nueva ventana
+    }//GEN-LAST:event_btnCrearArticuloMouseClicked
+
+    private void btnCrearArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseEntered
+        // TODO add your handling code here:
+        btnCrearArticulo.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnCrearArticuloMouseEntered
+
+    private void btnCrearArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseExited
+        // TODO add your handling code here:
+        btnCrearArticulo.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnCrearArticuloMouseExited
 
     /**
      * @param args the command line arguments
@@ -77,5 +210,11 @@ public class menuAdminPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCrearArticulo;
+    private javax.swing.JLabel btnModificarArticulo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

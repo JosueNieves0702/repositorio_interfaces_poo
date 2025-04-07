@@ -31,7 +31,7 @@ public class consultarExistencia extends javax.swing.JFrame {
         txtIngresarNombre = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnBuscar1 = new javax.swing.JLabel();
+        consultarTodo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -99,20 +99,20 @@ public class consultarExistencia extends javax.swing.JFrame {
         jLabel3.setText("BUSCAR POR NOMBRE:");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        btnBuscar1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnBuscar1.setForeground(new java.awt.Color(153, 153, 153));
-        btnBuscar1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnBuscar1.setText("CONSULTAR TODO");
-        btnBuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        consultarTodo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        consultarTodo.setForeground(new java.awt.Color(153, 153, 153));
+        consultarTodo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        consultarTodo.setText("CONSULTAR TODO");
+        consultarTodo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        consultarTodo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscar1MouseClicked(evt);
+                consultarTodoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscar1MouseEntered(evt);
+                consultarTodoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscar1MouseExited(evt);
+                consultarTodoMouseExited(evt);
             }
         });
 
@@ -129,7 +129,7 @@ public class consultarExistencia extends javax.swing.JFrame {
                         .addComponent(txtIngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscar))
-                    .addComponent(btnBuscar1))
+                    .addComponent(consultarTodo))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -144,7 +144,7 @@ public class consultarExistencia extends javax.swing.JFrame {
                     .addComponent(txtIngresarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar1)
+                .addComponent(consultarTodo)
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -218,17 +218,19 @@ public class consultarExistencia extends javax.swing.JFrame {
         btnBuscar.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnBuscarMouseExited
 
-    private void btnBuscar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscar1MouseClicked
+    private void consultarTodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultarTodoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1MouseClicked
+    }//GEN-LAST:event_consultarTodoMouseClicked
 
-    private void btnBuscar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscar1MouseEntered
+    private void consultarTodoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultarTodoMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1MouseEntered
+        consultarTodo.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_consultarTodoMouseEntered
 
-    private void btnBuscar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscar1MouseExited
+    private void consultarTodoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultarTodoMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1MouseExited
+        consultarTodo.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_consultarTodoMouseExited
 
     /**
      * @param args the command line arguments
@@ -267,7 +269,7 @@ public class consultarExistencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBuscar;
-    private javax.swing.JLabel btnBuscar1;
+    private javax.swing.JLabel consultarTodo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

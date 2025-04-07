@@ -29,7 +29,6 @@ public class menuAdminInventario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnConsultarExistencia = new javax.swing.JLabel();
-        btnBuscarPorNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -61,23 +60,6 @@ public class menuAdminInventario extends javax.swing.JFrame {
             }
         });
 
-        btnBuscarPorNombre.setBackground(new java.awt.Color(255, 255, 255));
-        btnBuscarPorNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnBuscarPorNombre.setForeground(new java.awt.Color(153, 153, 153));
-        btnBuscarPorNombre.setText("BUSCAR POR NOMBRE");
-        btnBuscarPorNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscarPorNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarPorNombreMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarPorNombreMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarPorNombreMouseExited(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -85,21 +67,18 @@ public class menuAdminInventario extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscarPorNombre)
-                    .addComponent(btnConsultarExistencia)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(btnConsultarExistencia))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscarPorNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConsultarExistencia)
-                .addGap(119, 119, 119))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -131,8 +110,8 @@ public class menuAdminInventario extends javax.swing.JFrame {
 
     private void btnConsultarExistenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarExistenciaMouseClicked
         // TODO add your handling code here:
-        modificarArticulo MA = new modificarArticulo();
-        MA.setVisible(true);
+        consultarExistencia CE = new consultarExistencia();
+        CE.setVisible(true);
 
     }//GEN-LAST:event_btnConsultarExistenciaMouseClicked
 
@@ -145,22 +124,6 @@ public class menuAdminInventario extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnConsultarExistencia.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnConsultarExistenciaMouseExited
-
-    private void btnBuscarPorNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPorNombreMouseClicked
-        // TODO add your handling code here:
-        buscarPorNombre BPN = new buscarPorNombre(); // Crear instancia
-        BPN.setVisible(true); // Mostrar la nueva ventana
-    }//GEN-LAST:event_btnBuscarPorNombreMouseClicked
-
-    private void btnBuscarPorNombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPorNombreMouseEntered
-        // TODO add your handling code here:
-        btnBuscarPorNombre.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnBuscarPorNombreMouseEntered
-
-    private void btnBuscarPorNombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPorNombreMouseExited
-        // TODO add your handling code here:
-        btnBuscarPorNombre.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnBuscarPorNombreMouseExited
 
     /**
      * @param args the command line arguments
@@ -198,7 +161,6 @@ public class menuAdminInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnBuscarPorNombre;
     private javax.swing.JLabel btnConsultarExistencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;

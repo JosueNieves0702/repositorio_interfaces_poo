@@ -32,6 +32,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnControlDeArticulos = new javax.swing.JLabel();
         btnAdminInventario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnAdministrarPedidos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -102,6 +103,23 @@ public class Menu_administrador extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setText("QUE DESEA HACER HOY?");
 
+        btnAdministrarPedidos.setBackground(new java.awt.Color(255, 255, 255));
+        btnAdministrarPedidos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAdministrarPedidos.setForeground(new java.awt.Color(153, 153, 153));
+        btnAdministrarPedidos.setText("ADMINISTRAR PEDIDOS");
+        btnAdministrarPedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdministrarPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdministrarPedidosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAdministrarPedidosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAdministrarPedidosMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -115,7 +133,8 @@ public class Menu_administrador extends javax.swing.JFrame {
                             .addComponent(btnControlDeArticulos)
                             .addComponent(jLabel1)
                             .addComponent(btnMenuUsuarios)
-                            .addComponent(btnAdminInventario))
+                            .addComponent(btnAdminInventario)
+                            .addComponent(btnAdministrarPedidos))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -132,7 +151,9 @@ public class Menu_administrador extends javax.swing.JFrame {
                 .addComponent(btnControlDeArticulos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdminInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAdministrarPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
@@ -199,6 +220,20 @@ public class Menu_administrador extends javax.swing.JFrame {
         btnAdminInventario.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnAdminInventarioMouseExited
 
+    private void btnAdministrarPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministrarPedidosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdministrarPedidosMouseClicked
+
+    private void btnAdministrarPedidosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministrarPedidosMouseEntered
+        // TODO add your handling code here:
+        btnAdministrarPedidos.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnAdministrarPedidosMouseEntered
+
+    private void btnAdministrarPedidosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministrarPedidosMouseExited
+        // TODO add your handling code here:
+        btnAdministrarPedidos.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnAdministrarPedidosMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +272,7 @@ public class Menu_administrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAdminInventario;
+    private javax.swing.JLabel btnAdministrarPedidos;
     private javax.swing.JLabel btnControlDeArticulos;
     private javax.swing.JLabel btnMenuUsuarios;
     private javax.swing.JLabel jLabel1;
