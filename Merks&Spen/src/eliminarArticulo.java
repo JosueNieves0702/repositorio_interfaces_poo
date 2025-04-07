@@ -19,6 +19,10 @@ public class eliminarArticulo extends javax.swing.JFrame {
     /**
      * Creates new form eliminarArticulo
      */
+   
+      private UserCRUD crud;
+
+      
     public eliminarArticulo() {
         initComponents();
     }
@@ -93,6 +97,9 @@ public class eliminarArticulo extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnBuscarIdMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMousePressed(evt);
+            }
         });
 
         btnEliminarArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -145,13 +152,13 @@ public class eliminarArticulo extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nombre", "Cantidad"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -187,7 +194,7 @@ public class eliminarArticulo extends javax.swing.JFrame {
     private void txtIngresarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMousePressed
         // TODO add your handling code here:
         String contra = new String(txtIngresarId.getText());
-        if (contra.equals("INGRESE ID")) {
+        if (contra.equals("Ingrese id")) {
             txtIngresarId.setText(""); // Limpia solo si está el texto por defecto
         }
         txtIngresarId.setForeground(new java.awt.Color(0, 0, 0));
@@ -269,11 +276,49 @@ public class eliminarArticulo extends javax.swing.JFrame {
             //En caso contrario muestra el siguiente mensaje:
             JOptionPane.showMessageDialog(this,"Registro no eliminado",  "No eliminado",JOptionPane.INFORMATION_MESSAGE);  
         }
-        
-        
-        
+     
     }//GEN-LAST:event_btnEliminarArticuloMousePressed
+    
+    //FIN MÉTODO PARA ELIMINAR UN ARTÍCULO
+    
+    private void btnBuscarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMousePressed
+        // TODO add your handling code here:
+        
+        //1. Obtener el valor del text, en donde se coloca el id para realizar consultas
+        String idtext=txtIngresarId.getText();
+        
+        //2. Se valida que no exista vacío
+        
+        if(idtext.isEmpty()){
+            JOptionPane.showMessageDialog(this, "El campo id es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. Búsqueda, llenado de la tabla
+        try{
+            
+            int id=Integer.parseInt(idtext);
+            ResultSet rs = crud.buscarporid(id);
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);//Limpiar para ingresar otro valor
+            
+            if(rs.next()){
+                modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
+            }
+       }
+        
+        catch(SQLException e){
+            
+            System.out.println("Error al llenar la tabla"+e.getMessage());
+        
+        }
+        
+        
+    }//GEN-LAST:event_btnBuscarIdMousePressed
 
+    
+    //FIN MÉTODO PARA BUSCAR POR ID
+    
     /**
      * @param args the command line arguments
      */
