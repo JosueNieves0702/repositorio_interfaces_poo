@@ -7,11 +7,23 @@
  *
  * @author Joaquin
  */
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 public class modificarArticulo extends javax.swing.JFrame {
 
     /**
      * Creates new form modificarArticulo
      */
+    
+    
+    private UserCRUD crud;
+
+    
+    
     public modificarArticulo() {
         initComponents();
     }
@@ -35,6 +47,7 @@ public class modificarArticulo extends javax.swing.JFrame {
         txtIngresarId = new javax.swing.JTextField();
         btnBuscarId = new javax.swing.JLabel();
         btnModificarArticulo = new javax.swing.JLabel();
+        btnModificarArticulo1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -140,6 +153,9 @@ public class modificarArticulo extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnBuscarIdMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMousePressed(evt);
+            }
         });
 
         btnModificarArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -154,6 +170,26 @@ public class modificarArticulo extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnModificarArticuloMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnModificarArticuloMousePressed(evt);
+            }
+        });
+
+        btnModificarArticulo1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnModificarArticulo1.setForeground(new java.awt.Color(153, 153, 153));
+        btnModificarArticulo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnModificarArticulo1.setText("MODIFICAR");
+        btnModificarArticulo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificarArticulo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModificarArticulo1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModificarArticulo1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnModificarArticulo1MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -163,17 +199,25 @@ public class modificarArticulo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModificarArticulo)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnBuscarId))
-                    .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModificarArticulo1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnBuscarId))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(0, 13, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModificarArticulo)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,27 +231,29 @@ public class modificarArticulo extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarArticulo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnModificarArticulo)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarArticulo1))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nombre", "Cantidad"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -243,7 +289,7 @@ public class modificarArticulo extends javax.swing.JFrame {
     private void txtNombreArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreArticuloMousePressed
         // TODO add your handling code here:
         String contra = new String(txtNombreArticulo.getText());
-        if (contra.equals("INGRESE NOMBRE")) {
+        if (contra.equals("Ingrese el nombre")) {
             txtNombreArticulo.setText(""); // Limpia solo si está el texto por defecto
         }
         txtNombreArticulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -252,7 +298,7 @@ public class modificarArticulo extends javax.swing.JFrame {
     private void txtCantidadArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadArticuloMousePressed
         // TODO add your handling code here:
         String contra = new String(txtCantidadArticulo.getText());
-        if (contra.equals("INGRESE CANTIDAD")) {
+        if (contra.equals("Ingrese la cantidad")) {
             txtCantidadArticulo.setText(""); // Limpia solo si está el texto por defecto
         }
         txtCantidadArticulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -277,7 +323,7 @@ public class modificarArticulo extends javax.swing.JFrame {
     private void txtIngresarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMousePressed
         // TODO add your handling code here:
         String contra = new String(txtIngresarId.getText());
-        if (contra.equals("INGRESE ID")) {
+        if (contra.equals("Ingrese id")) {
             txtIngresarId.setText(""); // Limpia solo si está el texto por defecto
         }
         txtIngresarId.setForeground(new java.awt.Color(0, 0, 0));
@@ -309,6 +355,162 @@ public class modificarArticulo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnModificarArticuloMouseExited
 
+    private void btnModificarArticulo1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticulo1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarArticulo1MouseEntered
+
+    private void btnModificarArticulo1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticulo1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarArticulo1MouseExited
+
+    private void btnBuscarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMousePressed
+        // TODO add your handling code here:
+        
+        //1. Obtener el valor del text, en donde se coloca el id para realizar consultas
+        String idtext=txtIngresarId.getText();
+        
+        //2. Se valida que no exista vacío
+        
+        if(idtext.isEmpty()){
+            JOptionPane.showMessageDialog(this, "El campo id es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. Búsqueda, llenado de la tabla
+        try{
+            
+            int id=Integer.parseInt(idtext);
+            ResultSet rs = crud.buscarporid(id);
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);//Limpiar para ingresar otro valor
+            
+            if(rs.next()){
+                modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
+            }
+       }
+        
+        catch(SQLException e){
+            
+            System.out.println("Error al llenar la tabla"+e.getMessage());
+        
+        }
+  
+    }//GEN-LAST:event_btnBuscarIdMousePressed
+   
+    //FIN MÉTODO PARA BUSCAR POR ID
+    
+    private void btnModificarArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMousePressed
+        // TODO add your handling code here:
+        
+        //1. Se guarda en la variable lo que el usuario a ingresado
+        
+        String nom=txtNombreArticulo.getText();
+        String id=txtIngresarId.getText();
+        
+        //2. Se valida que no existan vacíos
+        
+        if(nom.isEmpty()|| id.isEmpty()){
+            
+            JOptionPane.showMessageDialog(this, "El campo es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. El usuario ingresa dato para actualizar el campo de nombre
+        
+        UserCRUD crud = new UserCRUD();
+     
+        
+        //4. Se pregunta al usuario si desea actualizar el campo
+        int respuesta = JOptionPane.showConfirmDialog(
+            null, 
+            "¿Estás seguro de que quieres modificar el nombre?", 
+            "Confirmar modificación", 
+            JOptionPane.YES_NO_OPTION
+        );
+        
+        if (respuesta == JOptionPane.YES_OPTION){
+            
+                //5. Se muestra el status de la actualización/UPDATE
+                
+            //Si selecciona la opción "YES/SI" se hace la actualización 
+            
+            boolean status=crud.modificarnombrearticulo(nom, id);
+            if(status){
+                
+            
+       JOptionPane.showMessageDialog(this,"Nombre del artículo modificado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+            
+        }
+            
+        else
+        {       
+            //En caso contrario muestra el siguiente mensaje:
+            JOptionPane.showMessageDialog(this,"Nombre del artículo no modificado", "No modificado",JOptionPane.INFORMATION_MESSAGE);  
+        }
+        
+    }//GEN-LAST:event_btnModificarArticuloMousePressed
+
+    private void btnModificarArticulo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticulo1MousePressed
+        // TODO add your handling code here:
+        
+        
+        //1. Se guarda en la variable lo que el usuario a ingresado
+        
+        String can=txtCantidadArticulo.getText();
+        String id=txtIngresarId.getText();
+        
+        //2. Se valida que no existan vacíos
+        
+        if(can.isEmpty()|| id.isEmpty()){
+            
+            JOptionPane.showMessageDialog(this, "El campo es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. El usuario ingresa dato para actualizar el campo de nombre
+        
+        UserCRUD crud = new UserCRUD();
+     
+        
+        //4. Se pregunta al usuario si desea actualizar el campo
+        int respuesta = JOptionPane.showConfirmDialog(
+            null, 
+            "¿Estás seguro de que quieres modificar la cantidad?", 
+            "Confirmar modificación", 
+            JOptionPane.YES_NO_OPTION
+        );
+        
+        if (respuesta == JOptionPane.YES_OPTION){
+            
+                //5. Se muestra el status de la actualización/UPDATE/modificación
+                
+            //Si selecciona la opción "YES/SI" se hace la actualización 
+            
+            boolean status=crud.modificarcantidadarticulo(can, id);
+            if(status){
+                
+            
+       JOptionPane.showMessageDialog(this,"Cantidad del artículo modificado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+            
+        }
+            
+        else
+        {       
+            //En caso contrario muestra el siguiente mensaje:
+            JOptionPane.showMessageDialog(this,"Cantidad del artículo no modificado", "No modificado",JOptionPane.INFORMATION_MESSAGE);  
+        }
+        
+    }//GEN-LAST:event_btnModificarArticulo1MousePressed
+
+    
+    ///FIN MÉTODO PARA MODIFICAR EL STOCK O CANTIDAD DEL ARTÍCULO
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -347,6 +549,7 @@ public class modificarArticulo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBuscarId;
     private javax.swing.JLabel btnModificarArticulo;
+    private javax.swing.JLabel btnModificarArticulo1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

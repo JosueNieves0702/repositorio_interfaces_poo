@@ -222,7 +222,7 @@ public class crearArticulo extends javax.swing.JFrame {
     private void txtNombreArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreArticuloMousePressed
         // TODO add your handling code here:
         String contra = new String(txtNombreArticulo.getText());
-        if (contra.equals("Ingrese nombre")) {
+        if (contra.equals("Ingrese el nombre")) {
             txtNombreArticulo.setText(""); // Limpia solo si está el texto por defecto
         }
         txtNombreArticulo.setForeground(new java.awt.Color(0, 0, 0)); 
@@ -232,7 +232,7 @@ public class crearArticulo extends javax.swing.JFrame {
     private void txtCantidadArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadArticuloMousePressed
         // TODO add your handling code here:
         String contra = new String(txtCantidadArticulo.getText());
-        if (contra.equals("Ingrese cantidad")) {
+        if (contra.equals("Ingrese la cantidad")) {
             txtCantidadArticulo.setText(""); // Limpia solo si está el texto por defecto
         }
         txtCantidadArticulo.setForeground(new java.awt.Color(0, 0, 0));

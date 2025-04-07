@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+
 public class eliminarArticulo extends javax.swing.JFrame {
 
     /**
@@ -194,7 +195,7 @@ public class eliminarArticulo extends javax.swing.JFrame {
     private void txtIngresarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMousePressed
         // TODO add your handling code here:
         String contra = new String(txtIngresarId.getText());
-        if (contra.equals("Ingrese id")) {
+        if (contra.equals("Ingrese el id")) {
             txtIngresarId.setText(""); // Limpia solo si está el texto por defecto
         }
         txtIngresarId.setForeground(new java.awt.Color(0, 0, 0));

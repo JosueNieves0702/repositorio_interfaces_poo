@@ -78,11 +78,9 @@ public class UserCRUD {
             return false;
         }
     
-    }//Fin de la CREACIÓN de artículo
+    }//Fin de la CREACIÓN del artículo
     
-    
-    
-    
+   
     public boolean eliminararticulo(String id_articulo){
         
         String insertSQL="DELETE FROM Articulos WHERE id_articulo=?";//? como parámetro que luego se obtendrá
@@ -102,7 +100,53 @@ public class UserCRUD {
             return false;
         }
         
-    }//Fin de la ELIMINACIÓN de artículo
+    }//Fin de la ELIMINACIÓN del artículo
+    
+    
+    public boolean modificarnombrearticulo(String nombre_articulo, String id_articulo){
+        
+        String insertSQL="UPDATE Articulos SET Nombre_articulo=? WHERE id_articulo=?";
+        //String insertSQL="UPDATE Articulos SET nombre=? WHERE id_usuario=?";
+        
+        try{ //Se asigna la sentencia y los parámetros para su ejecución
+            PreparedStatement ps=conexion.prepareStatement(insertSQL);
+            
+            ps.setString(1, nombre_articulo);
+            ps.setString(2, id_articulo);
+            return ps.executeUpdate()>0;
+           
+        }
+        
+        catch(SQLException e){
+            //Se imprime en consola un mensaje en caso de que no se ejecute el INSERT
+            System.out.println("Error al modificar el nombre del artículo"+e.getMessage());//Las excepciones son para observar donde está el error
+            return false;
+        }
+        
+    }//Fin de la ACTUALIZACIÓN del nombre del artículo
+    
+    
+     public boolean modificarcantidadarticulo(String cantidad_articulo, String id_articulo){
+        
+        String insertSQL="UPDATE Articulos SET cantidad_articulo=? WHERE id_articulo=?";
+        //String insertSQL="UPDATE Articulos SET nombre=? WHERE id_usuario=?";
+        
+        try{ //Se asigna la sentencia y los parámetros para su ejecución
+            PreparedStatement ps=conexion.prepareStatement(insertSQL);
+            
+            ps.setString(1, cantidad_articulo);
+            ps.setString(2, id_articulo);
+            return ps.executeUpdate()>0;
+           
+        }
+        
+        catch(SQLException e){
+            //Se imprime en consola un mensaje en caso de que no se ejecute el INSERT
+            System.out.println("Error al modificar la cantidad del artículo"+e.getMessage());//Las excepciones son para observar donde está el error
+            return false;
+        }
+        
+    }//Fin de la ACTUALIZACIÓN de la cantidad del artículo
     
   
     
