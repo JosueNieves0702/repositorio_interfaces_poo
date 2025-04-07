@@ -225,7 +225,8 @@ public class crearArticulo extends javax.swing.JFrame {
         if (contra.equals("INGRESE NOMBRE")) {
             txtNombreArticulo.setText(""); // Limpia solo si está el texto por defecto
         }
-        txtNombreArticulo.setForeground(new java.awt.Color(0, 0, 0));
+        txtNombreArticulo.setForeground(new java.awt.Color(0, 0, 0)); 
+        
     }//GEN-LAST:event_txtNombreArticuloMousePressed
 
     private void txtCantidadArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadArticuloMousePressed
@@ -273,12 +274,12 @@ public class crearArticulo extends javax.swing.JFrame {
         
         if(status){
             
-       JOptionPane.showMessageDialog(this,"Usuario guardado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+       JOptionPane.showMessageDialog(this,"Artículo guardado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
             
         }
         else
         {       
-            JOptionPane.showMessageDialog(this,"Usuario no guardado", "Error",JOptionPane.ERROR_MESSAGE);  
+            JOptionPane.showMessageDialog(this,"Artículo no guardado", "Error",JOptionPane.ERROR_MESSAGE);  
         }
         
     }//GEN-LAST:event_btnCrearMousePressed
