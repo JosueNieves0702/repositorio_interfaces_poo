@@ -227,7 +227,8 @@ public class Login extends javax.swing.JFrame {
         if(tipo != null){
             if(tipo.equals("Administrador")){
                 JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenid@ "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
-                
+                Menu_administrador MA = new Menu_administrador();
+                MA.setVisible(true);
             } else if (tipo.equals("Usuario")){
                 JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenid@ "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
                 

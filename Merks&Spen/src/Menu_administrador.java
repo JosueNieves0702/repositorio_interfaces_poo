@@ -14,6 +14,7 @@ public class Menu_administrador extends javax.swing.JFrame {
      */
     public Menu_administrador() {
         initComponents();
+        this.setTitle("Menú Principal");
     }
 
     /**
@@ -43,9 +44,14 @@ public class Menu_administrador extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("BIENVENIDO");
+        jLabel1.setText("BIENVENIDO,");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         btnMenuUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         btnMenuUsuarios.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -101,7 +107,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel2.setText("QUE DESEA HACER HOY?");
+        jLabel2.setText("¿QUÉ DESEA HACER HOY?");
 
         btnAdministrarPedidos.setBackground(new java.awt.Color(255, 255, 255));
         btnAdministrarPedidos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -153,7 +159,7 @@ public class Menu_administrador extends javax.swing.JFrame {
                 .addComponent(btnAdminInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdministrarPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
@@ -233,6 +239,10 @@ public class Menu_administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnAdministrarPedidos.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnAdministrarPedidosMouseExited
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
