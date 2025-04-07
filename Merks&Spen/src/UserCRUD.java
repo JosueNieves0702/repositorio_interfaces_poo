@@ -57,7 +57,6 @@ public class UserCRUD {
        
     }//Fin del Método para Consultar por id
     
-    
       public ResultSet obtenertodos(){
         
         //**NO SE PASAN NINGÚN PARÁMETRO, PORQUE SE DESEA OBTENER TODO Y NO UNO EN ESPECÍFICO**

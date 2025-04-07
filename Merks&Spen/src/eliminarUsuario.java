@@ -242,9 +242,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btnBuscarIdMousePressed
-
-    
-    //FIN MÉTODO BUSCAR POR ID
+//FIN MÉTODO BUSCAR POR ID
     
     private void btnEliminarUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMousePressed
         // TODO add your handling code here:
