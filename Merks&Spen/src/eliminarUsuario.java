@@ -260,7 +260,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
             return;
         }
         
-        //3. El usuario ingresa dato para actualizar el campo de correo
+        //3. El usuario ingresa dato para eliminar el campo de correo
         
         UserCRUD crud = new UserCRUD();
      
