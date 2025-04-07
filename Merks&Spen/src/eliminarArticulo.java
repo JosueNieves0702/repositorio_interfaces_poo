@@ -7,6 +7,13 @@
  *
  * @author Joaquin
  */
+
+
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 public class eliminarArticulo extends javax.swing.JFrame {
 
     /**
@@ -31,14 +38,6 @@ public class eliminarArticulo extends javax.swing.JFrame {
         txtIngresarId = new javax.swing.JTextField();
         btnBuscarId = new javax.swing.JLabel();
         btnEliminarArticulo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -53,7 +52,7 @@ public class eliminarArticulo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("ELIIMINAR ARTÍCULO");
+        jLabel2.setText("ELIMINAR ARTÍCULO");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         txtIngresarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -108,23 +107,10 @@ public class eliminarArticulo extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEliminarArticuloMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarArticuloMousePressed(evt);
+            }
         });
-
-        jLabel1.setText("jLabel1");
-
-        jLabel3.setText("jLabel3");
-
-        jLabel4.setText("jLabel4");
-
-        jLabel5.setText("jLabel5");
-
-        jLabel6.setText("jLabel6");
-
-        jLabel7.setText("jLabel7");
-
-        jLabel8.setText("jLabel8");
-
-        jLabel9.setText("jLabel9");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -139,55 +125,12 @@ public class eliminarArticulo extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(btnBuscarId))
                     .addComponent(jLabel2))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel9))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)))
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)))
+                .addGap(103, 103, 103)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -264,6 +207,10 @@ public class eliminarArticulo extends javax.swing.JFrame {
         btnBuscarId.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnBuscarIdMouseExited
 
+    
+    
+    
+    
     private void btnEliminarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarArticuloMouseEntered
         // TODO add your handling code here:
         btnEliminarArticulo.setForeground(new java.awt.Color(0,102,102));
@@ -273,6 +220,59 @@ public class eliminarArticulo extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnEliminarArticulo.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnEliminarArticuloMouseExited
+
+    private void btnEliminarArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarArticuloMousePressed
+        // TODO add your handling code here:
+        //1. Se guarda en la variable lo que el usuario a ingresado
+        
+        String ideliminar=txtIngresarId.getText();
+        
+        //2. Se valida que no existan vacíos
+        
+        if(ideliminar.isEmpty()){
+            
+            JOptionPane.showMessageDialog(this, "El campo es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. El usuario ingresa dato para actualizar el campo de correo
+        
+        UserCRUD crud = new UserCRUD();
+     
+        //4. Se pregunta al usuario si desea eliminar el registro
+        
+        
+        int respuesta = JOptionPane.showConfirmDialog(
+            null, 
+            "¿Estás seguro de que quieres eliminar este registro?", 
+            "Confirmar eliminación", 
+            JOptionPane.YES_NO_OPTION
+        );
+        
+        if (respuesta == JOptionPane.YES_OPTION){
+            
+        //5. Se muestra el status de la elimiación/DELETE
+                
+            //Si selecciona la opción "YES/SI" se elimina el registro correspondiente a ese id
+            
+            boolean status=crud.eliminararticulo(ideliminar);
+            
+            if(status){
+       JOptionPane.showMessageDialog(this,"Registro eliminado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+            
+        }
+            
+        else
+        {       
+            //En caso contrario muestra el siguiente mensaje:
+            JOptionPane.showMessageDialog(this,"Registro no eliminado",  "No eliminado",JOptionPane.INFORMATION_MESSAGE);  
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnEliminarArticuloMousePressed
 
     /**
      * @param args the command line arguments
@@ -312,15 +312,7 @@ public class eliminarArticulo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBuscarId;
     private javax.swing.JLabel btnEliminarArticulo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

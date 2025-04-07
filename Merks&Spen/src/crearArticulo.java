@@ -7,6 +7,10 @@
  *
  * @author Joaquin
  */
+
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+
 public class crearArticulo extends javax.swing.JFrame {
 
     /**
@@ -14,7 +18,24 @@ public class crearArticulo extends javax.swing.JFrame {
      */
     public crearArticulo() {
         initComponents();
+        verificarConexion();
     }
+    
+     //MÉTODO PARA VERIFICAR LA CONEXIÓN
+    private void verificarConexion(){
+        Connection conex = Conexion_MySQL.conectar();
+        
+        if(conex != null)
+        {
+            JOptionPane.showMessageDialog(this, "Conectado con éxito", "Conexion", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Error de conexión", "Conexion", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,6 +132,9 @@ public class crearArticulo extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCrearMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCrearMousePressed(evt);
             }
         });
 
@@ -224,6 +248,40 @@ public class crearArticulo extends javax.swing.JFrame {
                 btnCrear.setForeground(new java.awt.Color(153,153,153));
 
     }//GEN-LAST:event_btnCrearMouseExited
+
+    private void btnCrearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMousePressed
+        // TODO add your handling code here:
+        
+        //1. Se guarda en las variables lo que el usuario a ingresado
+        String nom_art=txtNombreArticulo.getText();
+        String stock=txtCantidadArticulo.getText();
+        
+        //2. Se valida que no existan vacíos
+        
+        if(nom_art.isEmpty() || stock.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. Se hacen inserciones/INSERT
+        
+        UserCRUD crud = new UserCRUD();
+        
+        boolean status=crud.creararticulo(nom_art, stock);
+        
+        //4. Se muestra el status de la inserción/INSERT
+        
+        if(status){
+            
+       JOptionPane.showMessageDialog(this,"Usuario guardado", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+        else
+        {       
+            JOptionPane.showMessageDialog(this,"Usuario no guardado", "Error",JOptionPane.ERROR_MESSAGE);  
+        }
+        
+    }//GEN-LAST:event_btnCrearMousePressed
 
     /**
      * @param args the command line arguments
