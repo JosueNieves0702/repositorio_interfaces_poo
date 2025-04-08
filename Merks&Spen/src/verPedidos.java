@@ -25,7 +25,12 @@ public class verPedidos extends javax.swing.JFrame {
         initComponents();
         
         rellenarCombos.llenarComboDesdeBD(combDpto, "Departamento", "Nombre_departamento");
+        
+        
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,7 +69,6 @@ public class verPedidos extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("INGRESE DEPARTAMENTO");
 
-        combDpto.setBackground(new java.awt.Color(255, 255, 255));
         combDpto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         combDpto.setForeground(new java.awt.Color(153, 153, 153));
         combDpto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,7 +108,7 @@ public class verPedidos extends javax.swing.JFrame {
 
         jTable1.setBackground(new java.awt.Color(204, 255, 255));
         jTable1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -153,9 +157,13 @@ public class verPedidos extends javax.swing.JFrame {
 
     private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
         // TODO add your handling code here:                                         
-    String departamentoSeleccionado = combDpto.getSelectedItem().toString();
+      String departamentoSeleccionado = combDpto.getSelectedItem().toString();
+    
+    // Actualizar la tabla
     DefaultTableModel modelo = crud.obtenerPedidosPorDepartamento(departamentoSeleccionado);
     jTable1.setModel(modelo);
+    
+    // Actualizar el comboBox de IDs
 
     }//GEN-LAST:event_combDptoActionPerformed
 

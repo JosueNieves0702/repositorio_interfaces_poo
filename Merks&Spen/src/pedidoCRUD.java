@@ -281,4 +281,73 @@ public class pedidoCRUD {
     
     return modelo;
 }
+ public List<Integer> obtenerIdsPedidosPorDepartamento(String nombreDepartamento) {
+    List<Integer> idsPedidos = new ArrayList<>();
+    
+    try {
+        // 1. Obtener ID del departamento
+        int idDepartamento = obtenerIdDepartamento(nombreDepartamento);
+        if (idDepartamento == -1) {
+            JOptionPane.showMessageDialog(null, "Departamento no encontrado.");
+            return idsPedidos;
+        }
+        
+        // 2. Consulta para obtener los IDs de los pedidos del departamento
+        String sql = "SELECT id_pedido_articulos FROM Pedido_articulos " +
+                    "WHERE id_departamento = ? ORDER BY id_pedido_articulos";
+        
+        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+            ps.setInt(1, idDepartamento);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    idsPedidos.add(rs.getInt("id_pedido_articulos"));
+                }
+            }
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al obtener IDs de pedidos: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al cargar IDs de pedidos.");
+    }
+    
+    return idsPedidos;
+} 
+
+ public boolean modificarEstatusPedido(int idPedido, String nuevoEstatus) {
+    try {
+        // 1. Obtener el ID del nuevo estatus
+        int idStatus = obtenerIdStatusPorNombre(nuevoEstatus);
+        if (idStatus == -1) {
+            JOptionPane.showMessageDialog(null, "Estatus no encontrado.");
+            return false;
+        }
+
+        // 2. Actualizar el estatus del pedido en la tabla Detalle_pedido_articulos
+        String sql = "UPDATE Detalle_pedido_articulos SET id_status_pedido = ? WHERE id_pedido_articulos = ?";
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ps.setInt(1, idStatus);
+        ps.setInt(2, idPedido);
+        int rowsAffected = ps.executeUpdate();
+        ps.close();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Estatus del pedido actualizado correctamente.");
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el pedido o no se pudo actualizar el estatus.");
+            return false;
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error al modificar estatus del pedido: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al modificar el estatus del pedido.");
+    }
+    return false;
 }
+
+}
+    
+    
+    
+
+
+
