@@ -7,6 +7,8 @@
  *
  * @author Joaquin
  */
+import javax.swing.JOptionPane;
+
 public class crearUsuario extends javax.swing.JFrame {
 
     /**
@@ -14,6 +16,7 @@ public class crearUsuario extends javax.swing.JFrame {
      */
     public crearUsuario() {
         initComponents();
+        this.setTitle("Agregar Usuario");
     }
 
     /**
@@ -31,15 +34,14 @@ public class crearUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        dptoSeleccionado = new javax.swing.JTextField();
-        txtContra = new javax.swing.JPasswordField();
-        tipoSeleccionado = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JLabel();
+        txtDepartamento = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        txtTipoSeleccionado = new javax.swing.JTextField();
         btnAdmin = new javax.swing.JLabel();
         btnUser = new javax.swing.JLabel();
         btnCrearUsuario = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btnRegresar = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -70,67 +72,63 @@ public class crearUsuario extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("TIPO DE USUARIO:");
 
-        dptoSeleccionado.setBackground(new java.awt.Color(255, 255, 255));
-        dptoSeleccionado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        dptoSeleccionado.setForeground(new java.awt.Color(153, 153, 153));
-        dptoSeleccionado.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        dptoSeleccionado.setText("DPTO.");
-        dptoSeleccionado.setBorder(null);
-        dptoSeleccionado.addActionListener(new java.awt.event.ActionListener() {
+        txtDepartamento.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtDepartamento.setForeground(new java.awt.Color(153, 153, 153));
+        txtDepartamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDepartamento.setText("DPTO.");
+        txtDepartamento.setBorder(null);
+        txtDepartamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDepartamentoMousePressed(evt);
+            }
+        });
+        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dptoSeleccionadoActionPerformed(evt);
+                txtDepartamentoActionPerformed(evt);
             }
         });
 
-        txtContra.setBackground(new java.awt.Color(255, 255, 255));
-        txtContra.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        txtContra.setForeground(new java.awt.Color(153, 153, 153));
-        txtContra.setText("jPasswordField1");
-        txtContra.setBorder(null);
-        txtContra.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtContra.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtContraseña.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtContraseña.setForeground(new java.awt.Color(153, 153, 153));
+        txtContraseña.setText("**********");
+        txtContraseña.setBorder(null);
+        txtContraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtContraMouseClicked(evt);
+                txtContraseñaMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtContraMousePressed(evt);
+                txtContraseñaMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                txtContraMouseReleased(evt);
+                txtContraseñaMouseReleased(evt);
             }
         });
-
-        tipoSeleccionado.setBackground(new java.awt.Color(255, 255, 255));
-        tipoSeleccionado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        tipoSeleccionado.setForeground(new java.awt.Color(153, 153, 153));
-        tipoSeleccionado.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        tipoSeleccionado.setText("TIPO");
-        tipoSeleccionado.setBorder(null);
-        tipoSeleccionado.addActionListener(new java.awt.event.ActionListener() {
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoSeleccionadoActionPerformed(evt);
+                txtContraseñaActionPerformed(evt);
             }
         });
 
-        btnBuscar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtTipoSeleccionado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtTipoSeleccionado.setForeground(new java.awt.Color(153, 153, 153));
+        txtTipoSeleccionado.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtTipoSeleccionado.setText("TIPO");
+        txtTipoSeleccionado.setBorder(null);
+        txtTipoSeleccionado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseClicked(evt);
+                txtTipoSeleccionadoMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseExited(evt);
+        });
+        txtTipoSeleccionado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoSeleccionadoActionPerformed(evt);
             }
         });
 
         btnAdmin.setFont(new java.awt.Font("Roboto", 1, 10)); // NOI18N
         btnAdmin.setForeground(new java.awt.Color(153, 153, 153));
-        btnAdmin.setText("ADMIN");
+        btnAdmin.setText("Administrador");
         btnAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,7 +144,7 @@ public class crearUsuario extends javax.swing.JFrame {
 
         btnUser.setFont(new java.awt.Font("Roboto", 1, 10)); // NOI18N
         btnUser.setForeground(new java.awt.Color(153, 153, 153));
-        btnUser.setText("USER");
+        btnUser.setText("Usuario");
         btnUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -167,6 +165,9 @@ public class crearUsuario extends javax.swing.JFrame {
         btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearUsuarioMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCrearUsuarioMouseEntered(evt);
             }
@@ -175,29 +176,66 @@ public class crearUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
+            }
+        });
+
+        btnLimpiar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(153, 153, 153));
+        btnLimpiar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresar)
                     .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar))
+                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
                         .addComponent(btnAdmin)
                         .addGap(18, 18, 18)
                         .addComponent(btnUser))
                     .addComponent(jLabel2)
-                    .addComponent(btnCrearUsuario))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnCrearUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar)))
                 .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
@@ -207,42 +245,29 @@ public class crearUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dptoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel3)
                 .addGap(2, 2, 2)
-                .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTipoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdmin)
                     .addComponent(btnUser))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(btnRegresar)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 280, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,6 +293,106 @@ public class crearUsuario extends javax.swing.JFrame {
         btnCrearUsuario.setForeground(new java.awt.Color(0,102,102));
     }//GEN-LAST:event_btnCrearUsuarioMouseEntered
 
+    private void txtTipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoSeleccionadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoSeleccionadoActionPerformed
+
+    private void txtContraseñaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaMouseReleased
+
+    private void txtContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMousePressed
+        // TODO add your handling code here:
+        String contra = new String(txtContraseña.getPassword());
+        if (contra.equals("**********")) {
+            txtContraseña.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtContraseña.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_txtContraseñaMousePressed
+
+    private void txtContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaMouseClicked
+
+    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepartamentoActionPerformed
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
+
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        MenuAdminUsuarios MAU = new MenuAdminUsuarios();
+        MAU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void txtDepartamentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMousePressed
+        // TODO add your handling code here:
+        String departamento = new String(txtDepartamento.getText());
+        if(departamento.equals("DPTO.")){
+            txtDepartamento.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtContraseña.setForeground(new java.awt.Color(0, 0, 0)); // Cambia a negro
+    }//GEN-LAST:event_txtDepartamentoMousePressed
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
+
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        // TODO add your handling code here:
+        btnLimpiar.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        // TODO add your handling code here:
+        btnLimpiar.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        // TODO add your handling code here:
+        LimpiarCampos();
+    }//GEN-LAST:event_btnLimpiarMouseClicked
+
+    private void btnCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseClicked
+        String departamento = txtDepartamento.getText();
+        String contraseña = new String(txtContraseña.getPassword());
+        String tipo_usuario = txtTipoSeleccionado.getText();
+        
+        if (departamento.isEmpty() || contraseña.isEmpty() || tipo_usuario.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Existe un campo vacío, revise nuevamente!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Validar que el tipo de usuario sea válido
+        if (!tipo_usuario.equalsIgnoreCase("Administrador") && !tipo_usuario.equalsIgnoreCase("Usuario")) {
+            JOptionPane.showMessageDialog(this, "Tipo de usuario inválido. Debe ser 'Administrador' o 'Usuario'.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        UserCRUD crud = new UserCRUD();
+        boolean status = crud.insertarUsuario(departamento, contraseña, tipo_usuario);
+        
+        if (status) {
+            JOptionPane.showMessageDialog(this, "Usuario Registrado Exitosamente!", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+            txtDepartamento.setText("");
+            txtContraseña.setText("");
+            txtTipoSeleccionado.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar usuario.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCrearUsuarioMouseClicked
+
     private void btnUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseExited
         // TODO add your handling code here:
         btnUser.setForeground(new java.awt.Color(153,153,153));
@@ -280,7 +405,7 @@ public class crearUsuario extends javax.swing.JFrame {
 
     private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
         // TODO add your handling code here:
-        tipoSeleccionado.setText("USER");
+        txtTipoSeleccionado.setText("Usuario");
     }//GEN-LAST:event_btnUserMouseClicked
 
     private void btnAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseExited
@@ -291,57 +416,22 @@ public class crearUsuario extends javax.swing.JFrame {
     private void btnAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseEntered
         // TODO add your handling code here:
         btnAdmin.setForeground(new java.awt.Color(0,102,102));
-
     }//GEN-LAST:event_btnAdminMouseEntered
 
     private void btnAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMouseClicked
         // TODO add your handling code here:
-        tipoSeleccionado.setText("ADMIN");
+        txtTipoSeleccionado.setText("Administrador");
     }//GEN-LAST:event_btnAdminMouseClicked
 
-    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
+    private void txtTipoSeleccionadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTipoSeleccionadoMouseClicked
         // TODO add your handling code here:
-        btnBuscar.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnBuscarMouseExited
+    }//GEN-LAST:event_txtTipoSeleccionadoMouseClicked
 
-    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
-        // TODO add your handling code here:
-        btnBuscar.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnBuscarMouseEntered
-
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-        // TODO add your handling code here:
-        buscarDpto BB = new buscarDpto();
-        BB.setVisible(true);
-    }//GEN-LAST:event_btnBuscarMouseClicked
-
-    private void tipoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSeleccionadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipoSeleccionadoActionPerformed
-
-    private void txtContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraMouseReleased
-
-    private void txtContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMousePressed
-        // TODO add your handling code here:
-        txtContra.setText("");
-        txtContra.setForeground(new java.awt.Color(0,0,0));
-    }//GEN-LAST:event_txtContraMousePressed
-
-    private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
-        // TODO add your handling code here:
-        String contra = new String(txtContra.getPassword());
-        if (contra.equals("*******")) {
-            txtContra.setText(""); // Limpia solo si está el texto por defecto
-        }
-        txtContra.setForeground(new java.awt.Color(0, 0, 0));
-    }//GEN-LAST:event_txtContraMouseClicked
-
-    private void dptoSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dptoSeleccionadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dptoSeleccionadoActionPerformed
-
+    private void LimpiarCampos(){
+        txtDepartamento.setText("");
+        txtContraseña.setText("");
+        JOptionPane.showMessageDialog(this, "Campos Limpios!","Limpieza Exitosa",JOptionPane.INFORMATION_MESSAGE);
+    }
     /**
      * @param args the command line arguments
      */
@@ -379,19 +469,18 @@ public class crearUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAdmin;
-    private javax.swing.JLabel btnBuscar;
     private javax.swing.JLabel btnCrearUsuario;
+    private javax.swing.JLabel btnLimpiar;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel btnUser;
-    private javax.swing.JTextField dptoSeleccionado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField tipoSeleccionado;
-    private javax.swing.JPasswordField txtContra;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtDepartamento;
+    private javax.swing.JTextField txtTipoSeleccionado;
     // End of variables declaration//GEN-END:variables
 }
