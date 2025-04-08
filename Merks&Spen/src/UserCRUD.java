@@ -181,5 +181,72 @@ public class UserCRUD {
         }
     }
    
+   //----------------------------------------------------------------------------------------------------------------------------------
    
+   public boolean InsertArticulo(String nombre, int cantidad){
+       String insertSQL = "INSERT INTO Articulos(Nombre_articulo, cantidad_articulo) VALUES(?,?)";
+       try{
+           PreparedStatement ps = conexion.prepareStatement(insertSQL);
+           ps.setString(1, nombre);
+           ps.setInt(2, cantidad);
+           return ps.executeUpdate()>0;
+       }
+       catch(SQLException e){
+           System.out.print("Error al crear el articulo "+e.getMessage());
+           return false;
+       }
+   }
+   
+   public boolean ActualizarPorID(String nombre, int cantidad, int id){
+       String updateSQL = "UPDATE Articulos SET Nombre_articulo = ?, cantidad_articulo = ? WHERE id_articulo = ?";
+       try{
+           PreparedStatement ps = conexion.prepareStatement(updateSQL);
+           ps.setString(1, nombre);
+           ps.setInt(2, cantidad);
+           ps.setInt(3, id);
+           return ps.executeUpdate()>0;
+       }
+       catch(SQLException e){
+           System.out.print("Error al actualizar el articulo "+e.getMessage());
+           return false;
+       }
+   }
+   
+   public ResultSet buscarPorIDArticulo(int id){ //SELECT dentro de MySQL Workbench
+        String sqlBuscar = "SELECT * FROM Articulos WHERE id_articulo = ?";
+        try{
+            PreparedStatement ps = conexion.prepareStatement(sqlBuscar); //Aginación de la sentencia y parámetros para su ejecución
+            ps.setInt(1, id);
+            return ps.executeQuery();
+        }
+        catch(SQLException e){
+            System.out.print("Error al buscar por ID"+e.getMessage());
+            return null;
+        }
+    }
+   
+    public ResultSet obtenerTodosArticulo(){
+        String sqlBuscarTodo = "SELECT * FROM Articulos";
+        try{
+            PreparedStatement ps = conexion.prepareStatement(sqlBuscarTodo);
+            return ps.executeQuery();
+        }
+        catch(SQLException e){
+            System.out.print("Error al buscar todos los artículos "+e.getMessage());
+            return null;
+        }
+    }
+    
+    public boolean EliminarPorIDArticulo(int id){
+        String deleteSQL = "DELETE FROM Articulos WHERE id_articulo = ?";
+        try{
+            PreparedStatement ps = conexion.prepareStatement(deleteSQL);
+            ps.setInt(1, id);
+            return ps.executeUpdate()>0;
+        }
+        catch(SQLException e){
+            System.out.print("Error al eliminar el articulo "+e.getMessage());
+            return false;
+        }
+    }
 }

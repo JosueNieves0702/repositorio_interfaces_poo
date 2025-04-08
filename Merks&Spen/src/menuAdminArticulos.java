@@ -1,3 +1,5 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +16,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
      */
     public menuAdminArticulos() {
         initComponents();
+        this.setTitle("Articulos");
     }
 
     /**
@@ -31,6 +34,8 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         btnModificarArticulo = new javax.swing.JLabel();
         btnCrearArticulo = new javax.swing.JLabel();
         btnEliminarArticulo = new javax.swing.JLabel();
+        btnConsultarArticulo = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -82,7 +87,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         btnEliminarArticulo.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminarArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnEliminarArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        btnEliminarArticulo.setText("ELIMINAR ARTIULO");
+        btnEliminarArticulo.setText("ELIMINAR ARTICULO");
         btnEliminarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,6 +101,40 @@ public class menuAdminArticulos extends javax.swing.JFrame {
             }
         });
 
+        btnConsultarArticulo.setBackground(new java.awt.Color(255, 255, 255));
+        btnConsultarArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnConsultarArticulo.setForeground(new java.awt.Color(153, 153, 153));
+        btnConsultarArticulo.setText("CONSULTAR ARTÍCULO");
+        btnConsultarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsultarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConsultarArticuloMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnConsultarArticuloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnConsultarArticuloMouseExited(evt);
+            }
+        });
+
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -106,13 +145,15 @@ public class menuAdminArticulos extends javax.swing.JFrame {
                     .addComponent(btnCrearArticulo)
                     .addComponent(btnModificarArticulo)
                     .addComponent(jLabel1)
-                    .addComponent(btnEliminarArticulo))
+                    .addComponent(btnEliminarArticulo)
+                    .addComponent(btnConsultarArticulo)
+                    .addComponent(btnRegresar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnCrearArticulo)
@@ -120,7 +161,11 @@ public class menuAdminArticulos extends javax.swing.JFrame {
                 .addComponent(btnModificarArticulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEliminarArticulo)
-                .addGap(90, 90, 90))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConsultarArticulo)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegresar)
+                .addGap(56, 56, 56))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -154,7 +199,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         // TODO add your handling code here:
         modificarArticulo MA = new modificarArticulo();
         MA.setVisible(true);
-        
+        this.dispose();
 
     }//GEN-LAST:event_btnModificarArticuloMouseClicked
 
@@ -172,6 +217,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         // TODO add your handling code here:
         crearArticulo CA = new crearArticulo(); // Crear instancia
         CA.setVisible(true); // Mostrar la nueva ventana
+        this.dispose();
     }//GEN-LAST:event_btnCrearArticuloMouseClicked
 
     private void btnCrearArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseEntered
@@ -189,6 +235,7 @@ public class menuAdminArticulos extends javax.swing.JFrame {
         // TODO add your handling code here:
         eliminarArticulo EA = new eliminarArticulo();
         EA.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEliminarArticuloMouseClicked
 
     private void btnEliminarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarArticuloMouseEntered
@@ -199,9 +246,42 @@ public class menuAdminArticulos extends javax.swing.JFrame {
 
     private void btnEliminarArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarArticuloMouseExited
         // TODO add your handling code here:
-
         btnEliminarArticulo.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnEliminarArticuloMouseExited
+
+    private void btnConsultarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarArticuloMouseClicked
+        // TODO add your handling code here:
+        BuscarArticulo BA = new BuscarArticulo();
+        BA.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnConsultarArticuloMouseClicked
+
+    private void btnConsultarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarArticuloMouseEntered
+        // TODO add your handling code here:
+        btnConsultarArticulo.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnConsultarArticuloMouseEntered
+
+    private void btnConsultarArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarArticuloMouseExited
+        // TODO add your handling code here:
+        btnConsultarArticulo.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnConsultarArticuloMouseExited
+
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Menu_administrador MA = new Menu_administrador();
+        MA.setVisible(true);
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
 
     /**
      * @param args the command line arguments
@@ -239,9 +319,11 @@ public class menuAdminArticulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnConsultarArticulo;
     private javax.swing.JLabel btnCrearArticulo;
     private javax.swing.JLabel btnEliminarArticulo;
     private javax.swing.JLabel btnModificarArticulo;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

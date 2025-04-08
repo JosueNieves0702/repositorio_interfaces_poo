@@ -206,6 +206,7 @@ public class Menu_administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuAdminArticulos MAA = new menuAdminArticulos();
         MAA.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_btnControlDeArticulosMouseClicked
 

@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,13 +10,21 @@
  *
  * @author Joaquin
  */
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 public class eliminarArticulo extends javax.swing.JFrame {
 
     /**
      * Creates new form eliminarArticulo
      */
+    private UserCRUD crud;
+    
     public eliminarArticulo() {
         initComponents();
+        this.setTitle("Eliminar Artículo");
+        crud = new UserCRUD();
     }
 
     /**
@@ -28,9 +39,10 @@ public class eliminarArticulo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtIngresarId = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         btnBuscarId = new javax.swing.JLabel();
         btnEliminarArticulo = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -45,33 +57,32 @@ public class eliminarArticulo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("ELIIMINAR ARTICULO");
+        jLabel2.setText("ELIMINAR ARTICULO");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        txtIngresarId.setBackground(new java.awt.Color(255, 255, 255));
-        txtIngresarId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        txtIngresarId.setForeground(new java.awt.Color(153, 153, 153));
-        txtIngresarId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtIngresarId.setText("INGRESE ID");
-        txtIngresarId.setBorder(null);
-        txtIngresarId.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtIngresarId.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtId.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtId.setForeground(new java.awt.Color(153, 153, 153));
+        txtId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtId.setText("INGRESE ID.");
+        txtId.setBorder(null);
+        txtId.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtIngresarIdMouseClicked(evt);
+                txtIdMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtIngresarIdMouseEntered(evt);
+                txtIdMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtIngresarIdMouseExited(evt);
+                txtIdMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtIngresarIdMousePressed(evt);
+                txtIdMousePressed(evt);
             }
         });
-        txtIngresarId.addActionListener(new java.awt.event.ActionListener() {
+        txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIngresarIdActionPerformed(evt);
+                txtIdActionPerformed(evt);
             }
         });
 
@@ -81,6 +92,9 @@ public class eliminarArticulo extends javax.swing.JFrame {
         btnBuscarId.setText("BUSCAR");
         btnBuscarId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarIdMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBuscarIdMouseEntered(evt);
             }
@@ -95,11 +109,32 @@ public class eliminarArticulo extends javax.swing.JFrame {
         btnEliminarArticulo.setText("ELIMINAR");
         btnEliminarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarArticuloMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnEliminarArticuloMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEliminarArticuloMouseExited(evt);
+            }
+        });
+
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
             }
         });
 
@@ -110,39 +145,42 @@ public class eliminarArticulo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresar)
                     .addComponent(btnEliminarArticulo)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(btnBuscarId))
                     .addComponent(jLabel2))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(97, 97, 97)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarId))
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminarArticulo)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addGap(45, 45, 45))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Artículo", "Nombre", "Cantidad"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -163,30 +201,35 @@ public class eliminarArticulo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIngresarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMouseClicked
+    private void txtIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngresarIdMouseClicked
-
-    private void txtIngresarIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngresarIdMouseEntered
-
-    private void txtIngresarIdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngresarIdMouseExited
-
-    private void txtIngresarIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngresarIdMousePressed
-        // TODO add your handling code here:
-        String contra = new String(txtIngresarId.getText());
-        if (contra.equals("INGRESE ID")) {
-            txtIngresarId.setText(""); // Limpia solo si está el texto por defecto
+        String Ing = new String(txtId.getText());
+        if(Ing.equals("INGRESE ID.")){
+            txtId.setText("");
         }
-        txtIngresarId.setForeground(new java.awt.Color(0, 0, 0));
-    }//GEN-LAST:event_txtIngresarIdMousePressed
+        txtId.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_txtIdMouseClicked
 
-    private void txtIngresarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarIdActionPerformed
+    private void txtIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngresarIdActionPerformed
+    }//GEN-LAST:event_txtIdMouseEntered
+
+    private void txtIdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdMouseExited
+
+    private void txtIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMousePressed
+        // TODO add your handling code here:
+        String contra = new String(txtId.getText());
+        if (contra.equals("INGRESE ID")) {
+            txtId.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtId.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_txtIdMousePressed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnBuscarIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseEntered
         // TODO add your handling code here:
@@ -207,6 +250,74 @@ public class eliminarArticulo extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnEliminarArticulo.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnEliminarArticuloMouseExited
+
+    private void btnBuscarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIdMouseClicked
+        //1.- Obtener el valor del txt
+        String idtext = txtId.getText();
+        
+        //2.- Validar txt vacio
+        if(idtext.isEmpty()){
+            JOptionPane.showMessageDialog(this, "ERROR, campo vacío!","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3.- Búsqueda y llenado de la tabla
+        try{
+            int id = Integer.parseInt(idtext);
+            ResultSet rs = crud.buscarPorIDArticulo(id);
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);
+            
+            if(rs.next()){
+                modelo.addRow(new Object[]{rs.getInt("id_articulo"),rs.getString("Nombre_articulo"),rs.getInt("cantidad_articulo")});
+            }
+        }
+        catch(SQLException e){
+            System.out.print("Error al llenar la tabla: "+e.getMessage());
+        }
+    }//GEN-LAST:event_btnBuscarIdMouseClicked
+
+    private void btnEliminarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarArticuloMouseClicked
+        // TODO add your handling code here:
+        String id_articuloText = txtId.getText();
+        int id_articuloT = Integer.parseInt(id_articuloText);
+        
+        if(id_articuloText.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Campo vacío!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        int op = JOptionPane.showOptionDialog(null, "¿Seguro de eliminar al usuario?", "Confirmación", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Si", "No"}, EXIT_ON_CLOSE);
+        if(op == 0){
+            UserCRUD crud = new UserCRUD();
+            boolean eliminar = crud.EliminarPorIDArticulo(id_articuloT);
+            if(eliminar){
+                JOptionPane.showMessageDialog(this, "Usuario Eliminado Exitosamente!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "No existe un registro con tal ID!", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else if(op == 1){
+            JOptionPane.showMessageDialog(null, "Operación cancelada!");
+        }
+    }//GEN-LAST:event_btnEliminarArticuloMouseClicked
+
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        menuAdminArticulos MAA = new menuAdminArticulos();
+        MAA.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
 
     /**
      * @param args the command line arguments
@@ -246,11 +357,12 @@ public class eliminarArticulo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBuscarId;
     private javax.swing.JLabel btnEliminarArticulo;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtIngresarId;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }
