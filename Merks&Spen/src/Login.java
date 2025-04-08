@@ -324,9 +324,6 @@ public class Login extends javax.swing.JFrame {
 
     private void txtContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusGained
     // Texto negro
-    
-
-
     }//GEN-LAST:event_txtContraseñaFocusGained
 
     /**

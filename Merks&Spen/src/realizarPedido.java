@@ -30,6 +30,7 @@ public class realizarPedido extends javax.swing.JFrame {
         initComponents();
         rellenarCombos.llenarComboDesdeBD(combArticulo,"Articulos", "Nombre_articulo");
         rellenarCombos.llenarComboDesdeBD(combDpto,"Departamento", "Nombre_departamento");  
+        this.setTitle("Realizar Pedido");
     }
 
     /**
@@ -49,9 +50,10 @@ public class realizarPedido extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         btnAgregarArticulo = new javax.swing.JLabel();
-        txtFinalizarPedido = new javax.swing.JLabel();
+        btnFinalizarPedido = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         combDpto = new javax.swing.JComboBox<>();
+        btnRegresar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -74,7 +76,6 @@ public class realizarPedido extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("INGRESE SU ARTICULO");
 
-        combArticulo.setBackground(new java.awt.Color(255, 255, 255));
         combArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         combArticulo.setForeground(new java.awt.Color(153, 153, 153));
         combArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -90,7 +91,6 @@ public class realizarPedido extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("INGRESE LA CANTIDAD");
 
-        txtCantidad.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidad.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtCantidad.setForeground(new java.awt.Color(153, 153, 153));
         txtCantidad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -119,19 +119,33 @@ public class realizarPedido extends javax.swing.JFrame {
         btnAgregarArticulo.setForeground(new java.awt.Color(153, 153, 153));
         btnAgregarArticulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnAgregarArticulo.setText("AGREGAR ");
+        btnAgregarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAgregarArticuloMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarArticuloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarArticuloMouseExited(evt);
+            }
         });
 
-        txtFinalizarPedido.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        txtFinalizarPedido.setForeground(new java.awt.Color(153, 153, 153));
-        txtFinalizarPedido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        txtFinalizarPedido.setText("FINALIZAR PEDIDO");
-        txtFinalizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnFinalizarPedido.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnFinalizarPedido.setForeground(new java.awt.Color(153, 153, 153));
+        btnFinalizarPedido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnFinalizarPedido.setText("FINALIZAR PEDIDO");
+        btnFinalizarPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinalizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtFinalizarPedidoMouseClicked(evt);
+                btnFinalizarPedidoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFinalizarPedidoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFinalizarPedidoMouseExited(evt);
             }
         });
 
@@ -141,13 +155,29 @@ public class realizarPedido extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("INGRESE DEPARTAMENTO");
 
-        combDpto.setBackground(new java.awt.Color(255, 255, 255));
         combDpto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         combDpto.setForeground(new java.awt.Color(153, 153, 153));
         combDpto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         combDpto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combDptoActionPerformed(evt);
+            }
+        });
+
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
             }
         });
 
@@ -158,8 +188,9 @@ public class realizarPedido extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresar)
                     .addComponent(jLabel4)
-                    .addComponent(txtFinalizarPedido)
+                    .addComponent(btnFinalizarPedido)
                     .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -171,7 +202,7 @@ public class realizarPedido extends javax.swing.JFrame {
                         .addComponent(combDpto, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(combArticulo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +213,7 @@ public class realizarPedido extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,12 +223,14 @@ public class realizarPedido extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarArticulo))
-                .addGap(18, 18, 18)
-                .addComponent(txtFinalizarPedido)
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnFinalizarPedido)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegresar)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 300));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 320));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -222,7 +255,7 @@ public class realizarPedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
         );
 
         pack();
@@ -234,36 +267,38 @@ public class realizarPedido extends javax.swing.JFrame {
 
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
-        
-        
-
-
     }//GEN-LAST:event_txtCantidadActionPerformed
 
     private void btnAgregarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarArticuloMouseClicked
         // TODO add your handling code her
         
-        String nombreArticulo = (String) combArticulo.getSelectedItem();
+    String nombreArticulo = (String) combArticulo.getSelectedItem();
     String cantidad = txtCantidad.getText();
-
-    crud.agregarArticulo(nombreArticulo, cantidad, combArticulo);
-    
-    
+    if(cantidad.isEmpty() || cantidad.equals("CANTIDAD")){
+        JOptionPane.showMessageDialog(this, "ERROR, No puedes realizar pedidos sin una cantidad!", "ERROR", JOptionPane.ERROR_MESSAGE);
+        return;
+    } else {
+        crud.agregarArticulo(nombreArticulo, cantidad, combArticulo);
+    }
     }//GEN-LAST:event_btnAgregarArticuloMouseClicked
 
-    private void txtFinalizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFinalizarPedidoMouseClicked
+    private void btnFinalizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarPedidoMouseClicked
         // TODO add your handling code here:
-        String nombreDepartamento = (String) combDpto.getSelectedItem();
-
-    boolean exito = crud.finalizarPedido(nombreDepartamento);
-
-    if (exito) {
-        JOptionPane.showMessageDialog(this, "Pedido finalizado con éxito.");
+    String nombreDepartamento = (String) combDpto.getSelectedItem();
+    String cantidad = txtCantidad.getText();
+    
+    if(cantidad.isEmpty() || cantidad.equals("CANTIDAD")){
+        JOptionPane.showMessageDialog(this, "ERROR, No puedes realizar pedidos sin una cantidad!", "ERROR", JOptionPane.ERROR_MESSAGE);
+        return;
     } else {
-        JOptionPane.showMessageDialog(this, "Hubo un error al finalizar el pedido.");
+        boolean exito = crud.finalizarPedido(nombreDepartamento);
+        if(exito){
+            JOptionPane.showMessageDialog(this, "Pedido finalizado con éxito.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Hubo un error al finalizar el pedido.");
+        }
     }
-
-    }//GEN-LAST:event_txtFinalizarPedidoMouseClicked
+    }//GEN-LAST:event_btnFinalizarPedidoMouseClicked
 
     private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
         // TODO add your handling code here:
@@ -288,6 +323,43 @@ public class realizarPedido extends javax.swing.JFrame {
         txtCantidad.setForeground(new java.awt.Color(153, 153, 153)); // Gris placeholder
     }
     }//GEN-LAST:event_txtCantidadFocusLost
+
+    private void btnAgregarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarArticuloMouseEntered
+        // TODO add your handling code here:
+        btnAgregarArticulo.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnAgregarArticuloMouseEntered
+
+    private void btnAgregarArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarArticuloMouseExited
+        // TODO add your handling code here:
+        btnAgregarArticulo.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnAgregarArticuloMouseExited
+
+    private void btnFinalizarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarPedidoMouseEntered
+        // TODO add your handling code here:
+        btnFinalizarPedido.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnFinalizarPedidoMouseEntered
+
+    private void btnFinalizarPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarPedidoMouseExited
+        // TODO add your handling code here:
+        btnFinalizarPedido.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnFinalizarPedidoMouseExited
+
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Menu_administrador MA = new Menu_administrador();
+        MA.setVisible(true);
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
 
     /**
      * @param args the command line arguments
@@ -326,6 +398,8 @@ public class realizarPedido extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAgregarArticulo;
+    private javax.swing.JLabel btnFinalizarPedido;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JComboBox<String> combArticulo;
     private javax.swing.JComboBox<String> combDpto;
     private javax.swing.JLabel jLabel1;
@@ -336,6 +410,5 @@ public class realizarPedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtCantidad;
-    private javax.swing.JLabel txtFinalizarPedido;
     // End of variables declaration//GEN-END:variables
 }

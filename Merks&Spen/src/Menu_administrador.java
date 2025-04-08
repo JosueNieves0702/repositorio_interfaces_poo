@@ -254,6 +254,9 @@ public class Menu_administrador extends javax.swing.JFrame {
 
     private void btnAdministrarPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministrarPedidosMouseClicked
         // TODO add your handling code here:
+        realizarPedido RP = new realizarPedido();
+        RP.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAdministrarPedidosMouseClicked
 
     private void btnAdministrarPedidosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministrarPedidosMouseEntered
