@@ -145,6 +145,11 @@ public class modificarUsuario extends javax.swing.JFrame {
         txtDepartamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtDepartamento.setText("DPTO.");
         txtDepartamento.setBorder(null);
+        txtDepartamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDepartamentoMouseClicked(evt);
+            }
+        });
         txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDepartamentoActionPerformed(evt);
@@ -373,6 +378,12 @@ public class modificarUsuario extends javax.swing.JFrame {
 
     private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
         // TODO add your handling code here:
+        String depa = new String(txtDepartamento.getText());
+        if (depa.equals("DPTO.")) {
+            txtDepartamento.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtDepartamento.setForeground(new java.awt.Color(0, 0, 0));
+        
     }//GEN-LAST:event_txtDepartamentoActionPerformed
 
     private void txtContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseClicked
@@ -440,7 +451,7 @@ public class modificarUsuario extends javax.swing.JFrame {
         String idtext = txtId.getText();
         
         //2.- Validar txt vacio
-        if(idtext.isEmpty()){
+        if(idtext.isEmpty() || idtext.equals("INGRESE ID.")){
             JOptionPane.showMessageDialog(this, "ERROR, campo vacío!","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -504,9 +515,14 @@ public class modificarUsuario extends javax.swing.JFrame {
         String tipoUsuario = txtTipoSeleccionado.getText();
         
         if(departamento.isEmpty() || departamento.equals("DPTO.") || 
-           contraseña.isEmpty() || contraseña.equals("*******") || 
+           contraseña.isEmpty() || 
            tipoUsuario.isEmpty() || tipoUsuario.equals("TIPO")) {
             JOptionPane.showMessageDialog(this, "Todos los campos son requeridos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(!tipoUsuario.equalsIgnoreCase("Administrador") && !tipoUsuario.equalsIgnoreCase("Usuario")){
+            JOptionPane.showMessageDialog(this, "Tipo de usuario inválido. Debe ser 'Administrador' o 'Usuario'.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -553,6 +569,15 @@ public class modificarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
     }//GEN-LAST:event_btnRegresarMouseExited
+
+    private void txtDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepartamentoMouseClicked
+        // TODO add your handling code here:
+        String depa = new String(txtDepartamento.getText());
+        if (depa.equals("DPTO.")) {
+            txtDepartamento.setText(""); // Limpia solo si está el texto por defecto
+        }
+        txtDepartamento.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_txtDepartamentoMouseClicked
 
     /**
      * @param args the command line arguments

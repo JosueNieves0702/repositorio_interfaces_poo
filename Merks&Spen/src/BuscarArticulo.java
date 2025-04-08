@@ -370,10 +370,14 @@ public class BuscarArticulo extends javax.swing.JFrame {
         String idtext = txtId.getText();
 
         //2.- Validar txt vacío
-        if(idtext.isEmpty()){
+        if(idtext.isEmpty() || idtext.equals("INGRESE ID.")){
             JOptionPane.showMessageDialog(this, "ERROR, campo vacío!", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
-    }
+        }
+        if(!idtext.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido (número)","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
     //3.- Búsqueda y llenado de la tabla
     try {

@@ -377,7 +377,7 @@ public class BuscarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
          String idTexto = txtId.getText().trim();
 
-    if (idTexto.isEmpty()) {
+    if (idTexto.isEmpty() || idTexto.equals("INGRESE ID.")) {
         JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID", "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }

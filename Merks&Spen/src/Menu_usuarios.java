@@ -7,6 +7,7 @@
  *
  * @author Joaquin
  */
+import javax.swing.JOptionPane;
 public class Menu_usuarios extends javax.swing.JFrame {
 
     /**
@@ -14,6 +15,7 @@ public class Menu_usuarios extends javax.swing.JFrame {
      */
     public Menu_usuarios() {
         initComponents();
+        this.setTitle("Menú Principal");
     }
 
     /**
@@ -31,6 +33,7 @@ public class Menu_usuarios extends javax.swing.JFrame {
         btnRealizarPedido = new javax.swing.JLabel();
         btnVerPedidos = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,9 +43,9 @@ public class Menu_usuarios extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("BIENVENIDO");
+        jLabel1.setText("BIENVENIDO,");
 
         btnRealizarPedido.setBackground(new java.awt.Color(255, 255, 255));
         btnRealizarPedido.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -65,7 +68,7 @@ public class Menu_usuarios extends javax.swing.JFrame {
         btnVerPedidos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnVerPedidos.setForeground(new java.awt.Color(153, 153, 153));
         btnVerPedidos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnVerPedidos.setText(" VER PEDIDOS");
+        btnVerPedidos.setText("VER PEDIDOS");
         btnVerPedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVerPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -82,7 +85,24 @@ public class Menu_usuarios extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel2.setText("QUE DESEA HACER HOY?");
+        jLabel2.setText("¿QUÉ DESEA HACER HOY?");
+
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(255, 102, 102));
+        btnCerrarSesion.setText("CERRAR SESIÓN");
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -96,22 +116,25 @@ public class Menu_usuarios extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(btnRealizarPedido)
-                            .addComponent(btnVerPedidos))
+                            .addComponent(btnVerPedidos)
+                            .addComponent(btnCerrarSesion))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(btnRealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerPedidos)
-                .addGap(91, 91, 91))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 300));
@@ -132,8 +155,8 @@ public class Menu_usuarios extends javax.swing.JFrame {
 
     private void btnRealizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRealizarPedidoMouseClicked
         // TODO add your handling code here:
-        MenuAdminUsuarios MU = new MenuAdminUsuarios();
-        MU.setVisible(true);
+        realizarPedido RP = new realizarPedido();
+        RP.setVisible(true);
     }//GEN-LAST:event_btnRealizarPedidoMouseClicked
 
     private void btnRealizarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRealizarPedidoMouseEntered
@@ -148,9 +171,8 @@ public class Menu_usuarios extends javax.swing.JFrame {
 
     private void btnVerPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerPedidosMouseClicked
         // TODO add your handling code here:
-        menuAdminArticulos MAA = new menuAdminArticulos();
-        MAA.setVisible(true);
-
+        verPedidos VE = new verPedidos();
+        VE.setVisible(true);
     }//GEN-LAST:event_btnVerPedidosMouseClicked
 
     private void btnVerPedidosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerPedidosMouseEntered
@@ -162,6 +184,26 @@ public class Menu_usuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnVerPedidos.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnVerPedidosMouseExited
+
+    private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
+        // TODO add your handling code here:
+        int R = JOptionPane.showConfirmDialog(this, "¿Seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
+        if(R == JOptionPane.YES_OPTION){
+            this.dispose();
+            Login Login = new Login();
+            Login.setVisible(true);
+        }
+    }//GEN-LAST:event_btnCerrarSesionMouseClicked
+
+    private void btnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseEntered
+        // TODO add your handling code here:
+        btnCerrarSesion.setForeground(new java.awt.Color(255,0,0));
+    }//GEN-LAST:event_btnCerrarSesionMouseEntered
+
+    private void btnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseExited
+        // TODO add your handling code here:
+        btnCerrarSesion.setForeground(new java.awt.Color(255,102,102));
+    }//GEN-LAST:event_btnCerrarSesionMouseExited
 
     /**
      * @param args the command line arguments
@@ -199,6 +241,7 @@ public class Menu_usuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCerrarSesion;
     private javax.swing.JLabel btnRealizarPedido;
     private javax.swing.JLabel btnVerPedidos;
     private javax.swing.JLabel jLabel1;

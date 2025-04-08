@@ -386,7 +386,7 @@ public class crearUsuario extends javax.swing.JFrame {
         String contraseña = new String(txtContraseña.getPassword());
         String tipo_usuario = txtTipoSeleccionado.getText();
         
-        if (departamento.isEmpty() || contraseña.isEmpty() || tipo_usuario.isEmpty()) {
+        if (departamento.isEmpty() || contraseña.isEmpty() || tipo_usuario.isEmpty() || departamento.equals("DPTO.") || tipo_usuario.equals("TIPO")) {
             JOptionPane.showMessageDialog(this, "Existe un campo vacío, revise nuevamente!", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }

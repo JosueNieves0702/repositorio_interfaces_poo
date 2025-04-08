@@ -14,6 +14,7 @@ public class menuAdminPedidos extends javax.swing.JFrame {
      */
     public menuAdminPedidos() {
         initComponents();
+        this.setTitle("Pedidos");
     }
 
     /**
@@ -29,8 +30,9 @@ public class menuAdminPedidos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnModificarArticulo = new javax.swing.JLabel();
-        btnCrearArticulo = new javax.swing.JLabel();
+        btnConsultarPedido = new javax.swing.JLabel();
+        btnCambiarEstatus = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -56,37 +58,54 @@ public class menuAdminPedidos extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("PEDIDOS");
 
-        btnModificarArticulo.setBackground(new java.awt.Color(255, 255, 255));
-        btnModificarArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnModificarArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        btnModificarArticulo.setText("CONSULTAR PEDIDO");
-        btnModificarArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnModificarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConsultarPedido.setBackground(new java.awt.Color(255, 255, 255));
+        btnConsultarPedido.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnConsultarPedido.setForeground(new java.awt.Color(153, 153, 153));
+        btnConsultarPedido.setText("CONSULTAR PEDIDO");
+        btnConsultarPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsultarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnModificarArticuloMouseClicked(evt);
+                btnConsultarPedidoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnModificarArticuloMouseEntered(evt);
+                btnConsultarPedidoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnModificarArticuloMouseExited(evt);
+                btnConsultarPedidoMouseExited(evt);
             }
         });
 
-        btnCrearArticulo.setBackground(new java.awt.Color(255, 255, 255));
-        btnCrearArticulo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCrearArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        btnCrearArticulo.setText("CAMBIAR ESTATUS");
-        btnCrearArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCrearArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCambiarEstatus.setBackground(new java.awt.Color(255, 255, 255));
+        btnCambiarEstatus.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCambiarEstatus.setForeground(new java.awt.Color(153, 153, 153));
+        btnCambiarEstatus.setText("CAMBIAR ESTATUS");
+        btnCambiarEstatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCambiarEstatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCrearArticuloMouseClicked(evt);
+                btnCambiarEstatusMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrearArticuloMouseEntered(evt);
+                btnCambiarEstatusMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrearArticuloMouseExited(evt);
+                btnCambiarEstatusMouseExited(evt);
+            }
+        });
+
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
             }
         });
 
@@ -97,9 +116,10 @@ public class menuAdminPedidos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrearArticulo)
-                    .addComponent(btnModificarArticulo)
-                    .addComponent(jLabel1))
+                    .addComponent(btnCambiarEstatus)
+                    .addComponent(btnConsultarPedido)
+                    .addComponent(jLabel1)
+                    .addComponent(btnRegresar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -108,10 +128,12 @@ public class menuAdminPedidos extends javax.swing.JFrame {
                 .addContainerGap(109, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(btnCrearArticulo)
+                .addComponent(btnCambiarEstatus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnModificarArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addComponent(btnConsultarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegresar)
+                .addGap(70, 70, 70))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -141,38 +163,56 @@ public class menuAdminPedidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnModificarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMouseClicked
+    private void btnConsultarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarPedidoMouseClicked
         // TODO add your handling code here:
-        modificarArticulo MA = new modificarArticulo();
+        verPedidos VE = new verPedidos();
+        VE.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnConsultarPedidoMouseClicked
+
+    private void btnConsultarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarPedidoMouseEntered
+        // TODO add your handling code here:
+        btnConsultarPedido.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnConsultarPedidoMouseEntered
+
+    private void btnConsultarPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarPedidoMouseExited
+        // TODO add your handling code here:
+        btnConsultarPedido.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnConsultarPedidoMouseExited
+
+    private void btnCambiarEstatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCambiarEstatusMouseClicked
+        // TODO add your handling code here:
+        cambiarEstatus CE = new cambiarEstatus();
+        CE.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCambiarEstatusMouseClicked
+
+    private void btnCambiarEstatusMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCambiarEstatusMouseEntered
+        // TODO add your handling code here:
+        btnCambiarEstatus.setForeground(new java.awt.Color(0,102,102));
+    }//GEN-LAST:event_btnCambiarEstatusMouseEntered
+
+    private void btnCambiarEstatusMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCambiarEstatusMouseExited
+        // TODO add your handling code here:
+        btnCambiarEstatus.setForeground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_btnCambiarEstatusMouseExited
+
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Menu_administrador MA = new Menu_administrador();
         MA.setVisible(true);
+    }//GEN-LAST:event_btnRegresarMouseClicked
 
-    }//GEN-LAST:event_btnModificarArticuloMouseClicked
-
-    private void btnModificarArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMouseEntered
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
         // TODO add your handling code here:
-        btnModificarArticulo.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnModificarArticuloMouseEntered
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
 
-    private void btnModificarArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticuloMouseExited
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
         // TODO add your handling code here:
-        btnModificarArticulo.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnModificarArticuloMouseExited
-
-    private void btnCrearArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseClicked
-        // TODO add your handling code here:
-        crearArticulo CA = new crearArticulo(); // Crear instancia
-        CA.setVisible(true); // Mostrar la nueva ventana
-    }//GEN-LAST:event_btnCrearArticuloMouseClicked
-
-    private void btnCrearArticuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseEntered
-        // TODO add your handling code here:
-        btnCrearArticulo.setForeground(new java.awt.Color(0,102,102));
-    }//GEN-LAST:event_btnCrearArticuloMouseEntered
-
-    private void btnCrearArticuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearArticuloMouseExited
-        // TODO add your handling code here:
-        btnCrearArticulo.setForeground(new java.awt.Color(153,153,153));
-    }//GEN-LAST:event_btnCrearArticuloMouseExited
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
 
     /**
      * @param args the command line arguments
@@ -210,8 +250,9 @@ public class menuAdminPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnCrearArticulo;
-    private javax.swing.JLabel btnModificarArticulo;
+    private javax.swing.JLabel btnCambiarEstatus;
+    private javax.swing.JLabel btnConsultarPedido;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

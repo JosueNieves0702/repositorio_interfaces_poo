@@ -249,7 +249,7 @@ public class Login extends javax.swing.JFrame {
         String contra = String.valueOf(txtContraseña.getPassword());
         
         //2.- Validar que no existen campos vacios
-        if(depa.isEmpty() || contra.isEmpty()){
+        if(depa.isEmpty() || contra.isEmpty() || depa.equals("DPTO.")){
             JOptionPane.showMessageDialog(this, "Campos obligatorios!", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
@@ -257,20 +257,22 @@ public class Login extends javax.swing.JFrame {
         UserCRUD crud = new UserCRUD();
         String tipo = crud.Login(depa, contra);
         if(tipo != null){
+            Sesion.tipoUsuario = tipo;
             if(tipo.equals("Administrador")){
                 JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenid@ "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
                 Menu_administrador MA = new Menu_administrador();
                 MA.setVisible(true);
             } else if (tipo.equals("Usuario")){
                 JOptionPane.showMessageDialog(this, "Acceso Exitoso!\nBienvenid@ "+depa+"!", "Conexión Exitosa", JOptionPane.INFORMATION_MESSAGE);
-                
+                Menu_usuarios MU = new Menu_usuarios();
+                MU.setVisible(true);
             }
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales Incorrectas!", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
-
+    
     private void txtContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMousePressed
         // TODO add your handling code here:
         String contra = new String(txtContraseña.getPassword());

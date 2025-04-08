@@ -26,7 +26,7 @@ public class verPedidos extends javax.swing.JFrame {
         
         rellenarCombos.llenarComboDesdeBD(combDpto, "Departamento", "Nombre_departamento");
         
-        
+        this.setTitle("Consultar Pedido");
     }
     
     
@@ -46,6 +46,7 @@ public class verPedidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         combDpto = new javax.swing.JComboBox<>();
+        btnRegresar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -61,7 +62,7 @@ public class verPedidos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("VER PEDIDOS");
+        jLabel1.setText("CONSULTAR PEDIDO");
 
         jLabel4.setBackground(new java.awt.Color(153, 153, 153));
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -78,6 +79,23 @@ public class verPedidos extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -87,19 +105,22 @@ public class verPedidos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel1)
-                    .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegresar))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addGap(80, 80, 80)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
                 .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(btnRegresar)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
@@ -108,7 +129,6 @@ public class verPedidos extends javax.swing.JFrame {
 
         jTable1.setBackground(new java.awt.Color(204, 255, 255));
         jTable1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -167,6 +187,31 @@ public class verPedidos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_combDptoActionPerformed
 
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        String tipo = Sesion.tipoUsuario;
+        
+        if(tipo.equals("Administrador")){
+            this.dispose();
+            menuAdminPedidos MAP = new menuAdminPedidos();
+            MAP.setVisible(true);
+        } else if (tipo.equals("Usuario")){
+            this.dispose();
+            Menu_usuarios MU = new Menu_usuarios();
+            MU.setVisible(true);
+        }
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +248,7 @@ public class verPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JComboBox<String> combDpto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;

@@ -256,8 +256,12 @@ public class eliminarArticulo extends javax.swing.JFrame {
         String idtext = txtId.getText();
         
         //2.- Validar txt vacio
-        if(idtext.isEmpty()){
+        if(idtext.isEmpty() || idtext.equals("INGRESE ID.")){
             JOptionPane.showMessageDialog(this, "ERROR, campo vacío!","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(!idtext.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido (número)","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -282,8 +286,12 @@ public class eliminarArticulo extends javax.swing.JFrame {
         String id_articuloText = txtId.getText();
         int id_articuloT = Integer.parseInt(id_articuloText);
         
-        if(id_articuloText.isEmpty()){
+        if(id_articuloText.isEmpty() || id_articuloText.equals("INGRESE ID.")){
             JOptionPane.showMessageDialog(this, "Campo vacío!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(!id_articuloText.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido (número)","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
         

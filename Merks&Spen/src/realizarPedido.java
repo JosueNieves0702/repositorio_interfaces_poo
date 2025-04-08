@@ -19,8 +19,6 @@ public class realizarPedido extends javax.swing.JFrame {
  
   
     
-   
-    
     /**
      * 
      * 
@@ -164,11 +162,12 @@ public class realizarPedido extends javax.swing.JFrame {
             }
         });
 
-        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnRegresar.setText("REGRESAR");
         btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegresarMouseClicked(evt);
@@ -227,7 +226,7 @@ public class realizarPedido extends javax.swing.JFrame {
                 .addComponent(btnFinalizarPedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRegresar)
-                .addContainerGap())
+                .addGap(8, 8, 8))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 320));
@@ -274,8 +273,8 @@ public class realizarPedido extends javax.swing.JFrame {
         
     String nombreArticulo = (String) combArticulo.getSelectedItem();
     String cantidad = txtCantidad.getText();
-    if(cantidad.isEmpty() || cantidad.equals("CANTIDAD")){
-        JOptionPane.showMessageDialog(this, "ERROR, No puedes realizar pedidos sin una cantidad!", "ERROR", JOptionPane.ERROR_MESSAGE);
+    if(cantidad.isEmpty() || cantidad.equals("CANTIDAD") || !cantidad.matches("\\d+")){
+        JOptionPane.showMessageDialog(this, "ERROR, No puedes realizar pedidos sin una cantidad o la cantidad es errónea!", "ERROR", JOptionPane.ERROR_MESSAGE);
         return;
     } else {
         crud.agregarArticulo(nombreArticulo, cantidad, combArticulo);
@@ -287,8 +286,8 @@ public class realizarPedido extends javax.swing.JFrame {
     String nombreDepartamento = (String) combDpto.getSelectedItem();
     String cantidad = txtCantidad.getText();
     
-    if(cantidad.isEmpty() || cantidad.equals("CANTIDAD")){
-        JOptionPane.showMessageDialog(this, "ERROR, No puedes realizar pedidos sin una cantidad!", "ERROR", JOptionPane.ERROR_MESSAGE);
+    if(cantidad.isEmpty() || cantidad.equals("CANTIDAD") || !cantidad.matches("\\d+")){
+        JOptionPane.showMessageDialog(this, "ERROR, No puedes realizar pedidos sin una cantidad o la cantidad es errónea!", "ERROR", JOptionPane.ERROR_MESSAGE);
         return;
     } else {
         boolean exito = crud.finalizarPedido(nombreDepartamento);
@@ -346,9 +345,9 @@ public class realizarPedido extends javax.swing.JFrame {
 
     private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
         // TODO add your handling code here:
-        this.dispose();
-        Menu_administrador MA = new Menu_administrador();
-        MA.setVisible(true);
+            Menu_usuarios MU = new Menu_usuarios();
+            MU.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_btnRegresarMouseClicked
 
     private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
@@ -361,6 +360,7 @@ public class realizarPedido extends javax.swing.JFrame {
         btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
     }//GEN-LAST:event_btnRegresarMouseExited
 
+    
     /**
      * @param args the command line arguments
      */

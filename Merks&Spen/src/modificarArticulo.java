@@ -383,8 +383,12 @@ public class modificarArticulo extends javax.swing.JFrame {
         String idtext = txtId.getText();
         
         //2.- Validar txt vacio
-        if(idtext.isEmpty()){
+        if(idtext.isEmpty() || idtext.equals("INGRESE ID.")){
             JOptionPane.showMessageDialog(this, "ERROR, campo vacío!","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(!idtext.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido (número)","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -414,8 +418,12 @@ public class modificarArticulo extends javax.swing.JFrame {
         int id_articuloT = Integer.parseInt(id_articulo);
         
         //2.- Validar que no existen vacios
-        if(Nombre.isEmpty() || Cantidad.isEmpty()){
+        if(Nombre.isEmpty() || Cantidad.isEmpty() || Nombre.equals("INGRESE NOMBRE") || Cantidad.equals("INGRESE CANTIDAD") || id_articulo.isEmpty() || id_articulo.equals("INGRESE ID.")){
             JOptionPane.showMessageDialog(this, "Campos obligatorios!","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(!Cantidad.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Elija una cantidad en números positivos!","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
         

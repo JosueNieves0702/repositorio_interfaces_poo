@@ -288,8 +288,12 @@ public class crearArticulo extends javax.swing.JFrame {
         String Cantidad = txtCantidadArticulo.getText();
         
         //2.- Validar que no existen vacios
-        if(Nombre.isEmpty() || Cantidad.isEmpty()){
+        if(Nombre.isEmpty() || Cantidad.isEmpty() || Nombre.equals("INGRESE NOMBRE") || Cantidad.equals("INGRESE CANTIDAD")){
             JOptionPane.showMessageDialog(this, "Campos obligatorios!","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(!Cantidad.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Elija una cantidad en números positivos!","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
         

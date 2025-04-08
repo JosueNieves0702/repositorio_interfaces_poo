@@ -22,6 +22,7 @@ public class cambiarEstatus extends javax.swing.JFrame {
         rellenarCombos.llenarComboDesdeBD(combDpto, "Departamento", "Nombre_departamento");
         
         rellenarCombos.llenarComboDesdeBD(combStatus, "Status_pedido", "Estatus");
+        this.setTitle("Cambiar Estatus");
     }
 
     /**
@@ -43,6 +44,7 @@ public class cambiarEstatus extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         combStatus = new javax.swing.JComboBox<>();
         btnConfirmar = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -123,13 +125,34 @@ public class cambiarEstatus extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnConfirmar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegresar))
                     .addComponent(jLabel4)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
@@ -139,10 +162,6 @@ public class cambiarEstatus extends javax.swing.JFrame {
                         .addComponent(combId, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(combDpto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(btnConfirmar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,15 +181,16 @@ public class cambiarEstatus extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnConfirmar)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmar)
+                    .addComponent(btnRegresar))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 300));
 
         jTable1.setBackground(new java.awt.Color(204, 255, 255));
         jTable1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -289,6 +309,23 @@ public class cambiarEstatus extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnConfirmarMouseClicked
 
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        menuAdminPedidos MAP = new menuAdminPedidos();
+        MAP.setVisible(true);
+    }//GEN-LAST:event_btnRegresarMouseClicked
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        // TODO add your handling code here:
+        btnRegresar.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btnRegresarMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -326,6 +363,7 @@ public class cambiarEstatus extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnConfirmar;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JComboBox<String> combDpto;
     private javax.swing.JComboBox<String> combId;
     private javax.swing.JComboBox<String> combStatus;

@@ -197,7 +197,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
         String idtext = txtId.getText();
         
         //2.- Validar txt vacio
-        if(idtext.isEmpty()){
+        if(idtext.isEmpty() || idtext.equals("INGRESE ID")){
             JOptionPane.showMessageDialog(this, "ERROR, campo vacío!","ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }
