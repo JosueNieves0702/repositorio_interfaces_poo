@@ -22,10 +22,13 @@ public class eliminarArticulo extends javax.swing.JFrame {
      */
    
       private UserCRUD crud;
-
       
     public eliminarArticulo() {
-        initComponents();
+        
+    initComponents();
+    this.crud = new UserCRUD();
+        
+        
     }
 
     /**
@@ -278,7 +281,17 @@ public class eliminarArticulo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Registro no eliminado",  "No eliminado",JOptionPane.INFORMATION_MESSAGE);  
         }
      
+    limpiarcampos();
     }//GEN-LAST:event_btnEliminarArticuloMousePressed
+    
+  
+private void limpiarcampos(){
+        
+        txtIngresarId.setText("");
+    } 
+    
+    
+    
     
     //FIN MÉTODO PARA ELIMINAR UN ARTÍCULO
     
@@ -315,6 +328,10 @@ public class eliminarArticulo extends javax.swing.JFrame {
         }
         
         
+        
+   
+        
+   
     }//GEN-LAST:event_btnBuscarIdMousePressed
 
     

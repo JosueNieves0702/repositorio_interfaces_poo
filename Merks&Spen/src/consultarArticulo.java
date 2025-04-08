@@ -24,6 +24,8 @@ public class consultarArticulo extends javax.swing.JFrame {
      
     public consultarArticulo() {
         initComponents();
+        this.crud = new UserCRUD();
+    
     }
 
     /**
@@ -44,11 +46,10 @@ public class consultarArticulo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombreArticulo = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtCantidadArticulo = new javax.swing.JTextField();
         btnConsultarTodos = new javax.swing.JLabel();
         btnbuscarid = new javax.swing.JLabel();
         txtIngresarId = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
 
@@ -124,29 +125,6 @@ public class consultarArticulo extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("STOCK:");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        txtCantidadArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        txtCantidadArticulo.setForeground(new java.awt.Color(153, 153, 153));
-        txtCantidadArticulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtCantidadArticulo.setText("INGRESE CANTIDAD");
-        txtCantidadArticulo.setBorder(null);
-        txtCantidadArticulo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtCantidadArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtCantidadArticuloMousePressed(evt);
-            }
-        });
-        txtCantidadArticulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantidadArticuloActionPerformed(evt);
-            }
-        });
-
         btnConsultarTodos.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         btnConsultarTodos.setForeground(new java.awt.Color(153, 153, 153));
         btnConsultarTodos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -207,6 +185,15 @@ public class consultarArticulo extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("BUSCAR");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -215,15 +202,16 @@ public class consultarArticulo extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnbuscarid))
-                    .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(btnConsultarTodos))
+                    .addComponent(btnConsultarTodos)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnbuscarid)))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,19 +221,17 @@ public class consultarArticulo extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel4)
-                .addGap(12, 12, 12)
-                .addComponent(txtCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIngresarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnbuscarid))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnConsultarTodos)
-                .addGap(20, 20, 20))
+                .addGap(42, 42, 42))
         );
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 300));
@@ -303,19 +289,6 @@ public class consultarArticulo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNombreArticuloMousePressed
 
-    private void txtCantidadArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadArticuloMousePressed
-        // TODO add your handling code here:
-        String contra = new String(txtCantidadArticulo.getText());
-        if (contra.equals("Ingrese la cantidad")) {
-            txtCantidadArticulo.setText(""); // Limpia solo si está el texto por defecto
-        }
-        txtCantidadArticulo.setForeground(new java.awt.Color(0, 0, 0));
-    }//GEN-LAST:event_txtCantidadArticuloMousePressed
-
-    private void txtCantidadArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadArticuloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidadArticuloActionPerformed
-
     private void btnConsultarTodosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarTodosMouseEntered
         // TODO add your handling code here:
         btnConsultarTodos.setForeground(new java.awt.Color(0,102,102));
@@ -339,6 +312,8 @@ public class consultarArticulo extends javax.swing.JFrame {
                 
                 modelot.addRow(new Object[]{todos.getInt("id_articulo"), todos.getString("Nombre_articulo"), todos.getString("cantidad_articulo")});
                 //Aquí se colocan los nombres tal y como están en la Base de datos
+                
+                
             }
             
         }
@@ -376,8 +351,10 @@ public class consultarArticulo extends javax.swing.JFrame {
             
             int id=Integer.parseInt(idtext);
             ResultSet rs = crud.buscarporid(id);
-            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
             modelo.setRowCount(0);//Limpiar para ingresa otro valor
+            
+            
             
             if(rs.next()){
                 modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
@@ -423,6 +400,61 @@ public class consultarArticulo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreArticuloActionPerformed
 
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+   
+        
+    String nom = txtNombreArticulo.getText();
+
+    // Validación de campos vacíos
+    if (nom.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El campo es obligatorio", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    UserCRUD crud = new UserCRUD();
+    try {
+        // Obtener ResultSet de la consulta
+        ResultSet rs = crud.consultanombrearticulo(nom);
+        if (rs != null) {
+            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+            modelo.setRowCount(0); // Limpiar la tabla
+
+            // Verificar si hay resultados en el ResultSet
+            if (!rs.next()) {
+                JOptionPane.showMessageDialog(this, "No se encontró ningún artículo con ese nombre.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            // Llenar la tabla con los resultados encontrados
+            do {
+                modelo.addRow(new Object[]{
+                    "", // Deja el ID vacío
+                    rs.getString("Nombre_articulo"), // Coloca el nombre del artículo
+                    rs.getString("cantidad_articulo") // Coloca el stock del artículo
+                });
+            } while (rs.next());
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontraron artículos", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al llenar la tabla: " + e.getMessage());
+    }
+
+                                                     
+    
+      
+    }//GEN-LAST:event_jLabel1MousePressed
+    
+    
+    
+    
+    private void limpiarcampos(){
+        
+        txtNombreArticulo.setText("");
+        txtIngresarId.getText();
+    } 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -461,9 +493,9 @@ public class consultarArticulo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnConsultarTodos;
     private javax.swing.JLabel btnbuscarid;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -472,7 +504,6 @@ public class consultarArticulo extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField txtCantidadArticulo;
     private javax.swing.JTextField txtIngresarId;
     private javax.swing.JTextField txtNombreArticulo;
     // End of variables declaration//GEN-END:variables

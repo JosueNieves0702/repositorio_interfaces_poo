@@ -25,6 +25,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
     
     public eliminarUsuario() {
         initComponents();
+        
     }
 
     /**
@@ -234,6 +235,8 @@ public class eliminarUsuario extends javax.swing.JFrame {
             if(rs.next()){
                 modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
             }
+            
+            System.out.println("ID: " + rs.getInt("id_articulo") + ", Nombre: " + rs.getString("Nombre_articulo")+" Cantidad: "+rs.getString("cantidad_articulo"));
        }
         
         catch(SQLException e){

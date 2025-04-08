@@ -26,6 +26,8 @@ public class modificarArticulo extends javax.swing.JFrame {
     
     public modificarArticulo() {
         initComponents();
+        this.crud = new UserCRUD();
+       
     }
 
     /**
@@ -376,6 +378,8 @@ public class modificarArticulo extends javax.swing.JFrame {
             return;
         }
         
+        
+        
         //3. Búsqueda, llenado de la tabla
         try{
             
@@ -384,16 +388,25 @@ public class modificarArticulo extends javax.swing.JFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
             modelo.setRowCount(0);//Limpiar para ingresar otro valor
             
+            if (rs == null) {
+                JOptionPane.showMessageDialog(this, "Error al obtener datos", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             if(rs.next()){
                 modelo.addRow(new Object[]{rs.getInt("id_articulo"), rs.getString("Nombre_articulo"), rs.getString("cantidad_articulo")});
             }
        }
         
-        catch(SQLException e){
+       
+        
+         catch(SQLException e){
             
             System.out.println("Error al llenar la tabla"+e.getMessage());
         
         }
+        
+   
   
     }//GEN-LAST:event_btnBuscarIdMousePressed
    
@@ -449,9 +462,19 @@ public class modificarArticulo extends javax.swing.JFrame {
             //En caso contrario muestra el siguiente mensaje:
             JOptionPane.showMessageDialog(this,"Nombre del artículo no modificado", "No modificado",JOptionPane.INFORMATION_MESSAGE);  
         }
-        
+        limpiarcampos();
     }//GEN-LAST:event_btnModificarArticuloMousePressed
 
+  
+
+private void limpiarcampos(){
+        
+        txtNombreArticulo.setText("");
+        txtCantidadArticulo.setText("");
+        txtNombreArticulo.getText();
+        txtIngresarId.getText();
+    } 
+    
     private void btnModificarArticulo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarArticulo1MousePressed
         // TODO add your handling code here:
         
@@ -503,7 +526,7 @@ public class modificarArticulo extends javax.swing.JFrame {
             //En caso contrario muestra el siguiente mensaje:
             JOptionPane.showMessageDialog(this,"Cantidad del artículo no modificado", "No modificado",JOptionPane.INFORMATION_MESSAGE);  
         }
-        
+        limpiarcampos();
     }//GEN-LAST:event_btnModificarArticulo1MousePressed
 
     

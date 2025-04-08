@@ -39,15 +39,15 @@ public class UserCRUD {
     
     public ResultSet buscarporid(int id){
         String sqlBuscar= "SELECT * FROM Articulos WHERE id_articulo=?";//?--> parámetro pendiente
-        
+        System.out.println("ID proporcionado: " + id);
+
         
         //Si hay error no se romperá y capturará los errores
         try{
             PreparedStatement ps=conexion.prepareStatement(sqlBuscar);
             ps.setInt(1, id);
             return ps.executeQuery();//devuelve un ResultSet
-            
-        }
+    }
         
         catch(SQLException e){
             //Se imprime en consola un mensaje en caso de que no se ejecute la consulta
@@ -166,7 +166,48 @@ public class UserCRUD {
         }
         
     }//Fin de la ACTUALIZACIÓN de la cantidad del artículo
+     
+     
+     
+     /*public boolean consultanombrearticulo(String nombre_articulo) { 
+    String insertSQL = "SELECT * FROM Articulos WHERE Nombre_articulo = ?";
     
+    try {
+        // Preparar la sentencia y asignar el parámetro
+        PreparedStatement ps = conexion.prepareStatement(insertSQL);
+        ps.setString(1, nombre_articulo);
+        
+        // Ejecutar la consulta y obtener el ResultSet
+        ResultSet rs = ps.executeQuery();
+        
+        // Verificar si hay resultados
+        return rs.next(); // Retorna true si existe algún registro en la consulta
+    } catch (SQLException e) {
+        // Manejar la excepción
+        System.out.println("Error al consultar el nombre del artículo: " + e.getMessage());
+        return false;
+    }
+    
+    
+    
+  
+}
+*/
+     
+     public ResultSet consultanombrearticulo(String nombre_articulo) {
+    String selectSQL = "SELECT Nombre_articulo, cantidad_articulo FROM Articulos WHERE Nombre_articulo = ?";
+    
+    try {
+        PreparedStatement ps = conexion.prepareStatement(selectSQL);
+        ps.setString(1, nombre_articulo);
+        return ps.executeQuery(); // Devuelve el ResultSet
+    } catch (SQLException e) {
+        System.out.println("Error al consultar el nombre del artículo: " + e.getMessage());
+        return null; // Retorna null en caso de error
+    }
+}
+
+      
   
     
     

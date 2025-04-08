@@ -264,9 +264,20 @@ public class crearArticulo extends javax.swing.JFrame {
         {       
             JOptionPane.showMessageDialog(this,"Artículo no guardado", "Error",JOptionPane.ERROR_MESSAGE);  
         }
+
+limpiarcampos();
         
     }//GEN-LAST:event_btnCrearMousePressed
 
+     
+
+private void limpiarcampos(){
+        
+        txtNombreArticulo.setText("");
+        txtCantidadArticulo.setText("");     
+    } 
+    
+    
     /**
      * @param args the command line arguments
      */
