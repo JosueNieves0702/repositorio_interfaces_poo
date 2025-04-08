@@ -87,7 +87,6 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("CONTRASEÑA:");
 
-        txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
         txtContraseña.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(153, 153, 153));
         txtContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -123,7 +122,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtDepartamento.setBackground(new java.awt.Color(255, 255, 255));
         txtDepartamento.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         txtDepartamento.setForeground(new java.awt.Color(153, 153, 153));
         txtDepartamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -162,7 +160,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        combDpto.setBackground(new java.awt.Color(255, 255, 255));
         combDpto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         combDpto.setForeground(new java.awt.Color(153, 153, 153));
         combDpto.addActionListener(new java.awt.event.ActionListener() {
@@ -320,13 +317,13 @@ public class Login extends javax.swing.JFrame {
         btnLimpiar.setForeground(new java.awt.Color(153,153,153));
     }//GEN-LAST:event_btnLimpiarMouseExited
 
-    private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_combDptoActionPerformed
-
     private void txtContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusGained
     // Texto negro
     }//GEN-LAST:event_txtContraseñaFocusGained
+
+    private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combDptoActionPerformed
 
     /**
      * @param args the command line arguments
