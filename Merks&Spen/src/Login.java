@@ -93,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         txtContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtContraseña.setText("*******");
         txtContraseña.setBorder(null);
+        txtContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtContraseñaFocusGained(evt);
+            }
+        });
         txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtContraseñaMousePressed(evt);
@@ -316,6 +321,13 @@ public class Login extends javax.swing.JFrame {
     private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combDptoActionPerformed
+
+    private void txtContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusGained
+    // Texto negro
+    
+
+
+    }//GEN-LAST:event_txtContraseñaFocusGained
 
     /**
      * @param args the command line arguments

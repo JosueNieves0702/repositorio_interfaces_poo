@@ -7,14 +7,29 @@
  *
  * @author Joaquin
  */
+import javax.swing.*;
+import java.util.*;
 public class realizarPedido extends javax.swing.JFrame {
 
+    pedidoCRUD crud = new pedidoCRUD();
+
+    
+   
+    
+ 
+  
+    
+   
+    
     /**
+     * 
+     * 
      * Creates new form realizarPedido
      */
     public realizarPedido() {
         initComponents();
         rellenarCombos.llenarComboDesdeBD(combArticulo,"Articulos", "Nombre_articulo");
+        rellenarCombos.llenarComboDesdeBD(combDpto,"Departamento", "Nombre_departamento");  
     }
 
     /**
@@ -33,8 +48,11 @@ public class realizarPedido extends javax.swing.JFrame {
         combArticulo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        btnAgregarArticulo = new javax.swing.JLabel();
+        txtFinalizarPedido = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        combDpto = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -78,21 +96,60 @@ public class realizarPedido extends javax.swing.JFrame {
         txtCantidad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtCantidad.setText("CANTIDAD");
         txtCantidad.setBorder(null);
+        txtCantidad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCantidadFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCantidadFocusLost(evt);
+            }
+        });
+        txtCantidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCantidadMousePressed(evt);
+            }
+        });
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("AGREGAR ");
+        btnAgregarArticulo.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        btnAgregarArticulo.setForeground(new java.awt.Color(153, 153, 153));
+        btnAgregarArticulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAgregarArticulo.setText("AGREGAR ");
+        btnAgregarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarArticuloMouseClicked(evt);
+            }
+        });
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("FINALIZAR PEDIDO");
+        txtFinalizarPedido.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        txtFinalizarPedido.setForeground(new java.awt.Color(153, 153, 153));
+        txtFinalizarPedido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtFinalizarPedido.setText("FINALIZAR PEDIDO");
+        txtFinalizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFinalizarPedidoMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("INGRESE DEPARTAMENTO");
+
+        combDpto.setBackground(new java.awt.Color(255, 255, 255));
+        combDpto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        combDpto.setForeground(new java.awt.Color(153, 153, 153));
+        combDpto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        combDpto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combDptoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -101,39 +158,61 @@ public class realizarPedido extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(txtFinalizarPedido)
                     .addComponent(jLabel1)
-                    .addComponent(combArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5))
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                            .addComponent(btnAgregarArticulo))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(combDpto, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(combArticulo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(combDpto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(btnAgregarArticulo))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addComponent(txtFinalizarPedido)
+                .addGap(29, 29, 29))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 300));
+
+        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 250, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,7 +234,60 @@ public class realizarPedido extends javax.swing.JFrame {
 
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
+        
+        
+
+
     }//GEN-LAST:event_txtCantidadActionPerformed
+
+    private void btnAgregarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarArticuloMouseClicked
+        // TODO add your handling code her
+        
+        String nombreArticulo = (String) combArticulo.getSelectedItem();
+    String cantidad = txtCantidad.getText();
+
+    crud.agregarArticulo(nombreArticulo, cantidad, combArticulo);
+    
+    
+    }//GEN-LAST:event_btnAgregarArticuloMouseClicked
+
+    private void txtFinalizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFinalizarPedidoMouseClicked
+        // TODO add your handling code here:
+        String nombreDepartamento = (String) combDpto.getSelectedItem();
+
+    boolean exito = crud.finalizarPedido(nombreDepartamento);
+
+    if (exito) {
+        JOptionPane.showMessageDialog(this, "Pedido finalizado con éxito.");
+    } else {
+        JOptionPane.showMessageDialog(this, "Hubo un error al finalizar el pedido.");
+    }
+
+    }//GEN-LAST:event_txtFinalizarPedidoMouseClicked
+
+    private void combDptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combDptoActionPerformed
+
+    private void txtCantidadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadMousePressed
+
+    private void txtCantidadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidadFocusGained
+        // TODO add your handling code here:
+        if (txtCantidad.getText().equals("CANTIDAD")) {
+        txtCantidad.setText(""); // Borra el texto por defecto
+        txtCantidad.setForeground(new java.awt.Color(0, 0, 0)); // Texto negro
+    }
+    }//GEN-LAST:event_txtCantidadFocusGained
+
+    private void txtCantidadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidadFocusLost
+        // TODO add your handling code here:
+         if (txtCantidad.getText().trim().isEmpty()) {
+        txtCantidad.setText("CANTIDAD"); // Restaura el placeholder
+        txtCantidad.setForeground(new java.awt.Color(153, 153, 153)); // Gris placeholder
+    }
+    }//GEN-LAST:event_txtCantidadFocusLost
 
     /**
      * @param args the command line arguments
@@ -193,14 +325,17 @@ public class realizarPedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnAgregarArticulo;
     private javax.swing.JComboBox<String> combArticulo;
+    private javax.swing.JComboBox<String> combDpto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JLabel txtFinalizarPedido;
     // End of variables declaration//GEN-END:variables
 }
